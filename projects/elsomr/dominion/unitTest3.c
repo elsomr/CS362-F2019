@@ -19,9 +19,10 @@ int main() {
     int seed = 1000;
     int numPlayer = 4;
     int p, handCount, r;
-	int tempCoins, tempSupply;
+	int tempCoins, tempSupply, tempActions, tempPlayCount, tempCards;
 	int prePlayCardCount[numPlayer];
 	int postPlayCardCount[numPlayer];
+	int pre4Count, post4Count, postPlayCount, 
     int k[10] = {adventurer, council_room, estate, gardens, mine
                , remodel, ambassador, village, baron, great_hall};
 
@@ -32,7 +33,7 @@ int main() {
 	char tmpResult[5];
 	
 
-	int estate[MAX_HAND];
+	int estates[MAX_HAND];
 	int coppers[MAX_HAND];
 	
 	for (i = 0; i < MAX_HAND; i++)	{
@@ -89,7 +90,7 @@ int main() {
 				printf("Each player gained the shown card");
 				for (i=0; i< numPlayer; i++)	{
 					printf("Player %d: %d == %d", i, prePlayCardCount[i]+1, postPlayCardCount[i]);
-					assertEq(prePlayCardCount[i]+1, postPlayCardCount[i], failCounter, tmpResults);
+					assertEq(prePlayCardCount[i]+1, postPlayCardCount[i], failCounter, tmpResult);
 				}
 
 				
