@@ -24,29 +24,29 @@ unitTest1: unitTest1.c dominion.o rngs.o assertEq.o
 	gcc -o unitTest1 -g unitTest1.c dominion.o rngs.o assertEq.o $(CFLAGS)
 	
 unitTest2: unitTest2.c dominion.o rngs.o assertEq.o
-	gcc -o unitTest1 -g unitTest1.c dominion.o rngs.o assertEq.o $(CFLAGS)
+	gcc -o unitTest2 -g unitTest2.c dominion.o rngs.o assertEq.o $(CFLAGS)
 
 unitTest3: unitTest3.c dominion.o rngs.o assertEq.o
-	gcc -o unitTest1 -g unitTest1.c dominion.o rngs.o assertEq.o $(CFLAGS)
+	gcc -o unitTest3 -g unitTest3.c dominion.o rngs.o assertEq.o $(CFLAGS)
 
 unitTest4: unitTest4.c dominion.o rngs.o assertEq.o
-	gcc -o unitTest4 -g unitTest1.c dominion.o rngs.o assertEq.o $(CFLAGS)
+	gcc -o unitTest4 -g unitTest4.c dominion.o rngs.o assertEq.o $(CFLAGS)
 	
 unitTest5: unitTest5.c dominion.o rngs.o assertEq.o
 	gcc -o unitTest5 -g unitTest5.c dominion.o rngs.o assertEq.o $(CFLAGS)
 	
-runtests: unitTest1 unitTest2 
+runtests: unitTest1 unitTest2 unitTest3
 	./unitTest1 &> unittestresult.out
 	#gcov dominion.c >> unittestresult.out
 	#cat dominion.c.gcov >> unittestresult.out
 	
 	./unitTest2 &> unittestresult.out
-	gcov dominion.c >> unittestresult.out
-	cat dominion.c.gcov >> unittestresult.out
-	
-	# ./unitTest3 &> unittestresult.out
 	# gcov dominion.c >> unittestresult.out
 	# cat dominion.c.gcov >> unittestresult.out
+	
+	./unitTest3 &> unittestresult.out
+	gcov dominion.c >> unittestresult.out
+	cat dominion.c.gcov >> unittestresult.out
 	
 	# ./unitTest4 &> unittestresult.out
 	# gcov dominion.c >> unittestresult.out
