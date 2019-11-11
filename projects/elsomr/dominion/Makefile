@@ -35,7 +35,7 @@ unitTest4: unitTest4.c dominion.o rngs.o assertEq.o
 unitTest5: unitTest5.c dominion.o rngs.o assertEq.o
 	gcc -o unitTest5 -g unitTest5.c dominion.o rngs.o assertEq.o $(CFLAGS)
 	
-runtests: unitTest1 unitTest2 unitTest3 unitTest5
+runtests: unitTest1 unitTest2 unitTest3 unitTest4 unitTest5
 	./unitTest1 &> unittestresult.out
 	#gcov dominion.c >> unittestresult.out
 	#cat dominion.c.gcov >> unittestresult.out
