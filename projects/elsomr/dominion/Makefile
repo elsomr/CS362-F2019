@@ -48,7 +48,7 @@ runtests: unitTest1 unitTest2 unitTest3 unitTest5
 	# gcov dominion.c >> unittestresult.out
 	# cat dominion.c.gcov >> unittestresult.out
 	
-	# ./unitTest4 &> unittestresult.out
+	./unitTest4 &> unittestresult.out
 	# gcov dominion.c >> unittestresult.out
 	# cat dominion.c.gcov >> unittestresult.out
 	
