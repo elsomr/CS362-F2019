@@ -191,7 +191,7 @@ int main() {
 				//make hand have all estates
 				memcpy(G.hand[p], estates, sizeof(int) * handCount); 
 				
-				print("PASS\n\n\n");
+				printf("PASS\n\n\n");
 				tempCards = G.handCount[p];
 				tempSupply = G.supplyCount[G.hand[p][copper]];
 				
