@@ -21,6 +21,8 @@ int main() {
     int seed = 1000;
     int numPlayer = 4;
     int p, handCount, r;
+	int tempCoins, tempActions;
+	int pre4Count, tempPlayCount, post4Count, postPlayCount;
     int k[10] = {adventurer, council_room, estate, gardens, mine
                , remodel, smithy, village, baron, great_hall};
 
