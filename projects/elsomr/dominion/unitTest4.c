@@ -86,7 +86,7 @@ int main() {
 				memset(&G, 23, sizeof(struct gameState));   // clear the game state
 				r = initializeGame(numPlayer, k, seed, &G); // initialize a new game
 				
-				if (p < (numPlayers - 1)) {
+				if (p < (numPlayer - 1)) {
 					nextPlayer = p + 1;//Still safe to increment
 				}
 				else {
@@ -112,7 +112,7 @@ int main() {
 				memset(&G, 23, sizeof(struct gameState));   // clear the game state
 				r = initializeGame(numPlayer, k, seed, &G); // initialize a new game
 				
-				if (p < (numPlayers - 1)) {
+				if (p < (numPlayer - 1)) {
 					nextPlayer = p + 1;//Still safe to increment
 				}
 				else {
@@ -139,7 +139,7 @@ int main() {
 				memset(&G, 23, sizeof(struct gameState));   // clear the game state
 				r = initializeGame(numPlayer, k, seed, &G); // initialize a new game
 				
-				if (p < (numPlayers - 1)) {
+				if (p < (numPlayer - 1)) {
 					nextPlayer = p + 1;//Still safe to increment
 				}
 				else {
@@ -166,7 +166,7 @@ int main() {
 				memset(&G, 23, sizeof(struct gameState));   // clear the game state
 				r = initializeGame(numPlayer, k, seed, &G); // initialize a new game
 				
-				if (p < (numPlayers - 1)) {
+				if (p < (numPlayer - 1)) {
 					nextPlayer = p + 1;//Still safe to increment
 				}
 				else {
@@ -193,7 +193,7 @@ int main() {
 				memset(&G, 23, sizeof(struct gameState));   // clear the game state
 				r = initializeGame(numPlayer, k, seed, &G); // initialize a new game
 				
-				if (p < (numPlayers - 1)) {
+				if (p < (numPlayer - 1)) {
 					nextPlayer = p + 1;//Still safe to increment
 				}
 				else {
@@ -221,7 +221,7 @@ int main() {
 				memset(&G, 23, sizeof(struct gameState));   // clear the game state
 				r = initializeGame(numPlayer, k, seed, &G); // initialize a new game
 				
-				if (p < (numPlayers - 1)) {
+				if (p < (numPlayer - 1)) {
 					nextPlayer = p + 1;//Still safe to increment
 				}
 				else {
