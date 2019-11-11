@@ -37,7 +37,7 @@ int main() {
 	int estates[MAX_HAND];
 	int coppers[MAX_HAND];
 	int golds[MAX_HAND];
-	int silvers[MAX_HAND};
+	int silvers[MAX_HAND];
 	
 	for (i = 0; i < MAX_HAND; i++)	{
 		golds[i] = gold;
@@ -62,7 +62,7 @@ int main() {
 				preCopperCount = 0;
 				preSilverCount = 0;
 				postCopperCount = 0;
-				postSilverCount = 0
+				postSilverCount = 0;
 				preGoldCount = 0;
 				postGoldCount=0;
 				
@@ -105,7 +105,7 @@ int main() {
 				preCopperCount = 0;
 				preSilverCount = 0;
 				postCopperCount = 0;
-				postSilverCount = 0
+				postSilverCount = 0;
 				preGoldCount = 0;
 				postGoldCount=0;
 				
@@ -145,7 +145,7 @@ int main() {
 				preCopperCount = 0;
 				preSilverCount = 0;
 				postCopperCount = 0;
-				postSilverCount = 0
+				postSilverCount = 0;
 				preGoldCount = 0;
 				postGoldCount=0;
 				
@@ -184,7 +184,7 @@ int main() {
 				preCopperCount = 0;
 				preSilverCount = 0;
 				postCopperCount = 0;
-				postSilverCount = 0
+				postSilverCount = 0;
 				preGoldCount = 0;
 				postGoldCount=0;
 				
