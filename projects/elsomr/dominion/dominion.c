@@ -827,12 +827,9 @@ int ambassadorEffect(int choice1, int choice2, struct gameState* state, int hand
 
 	for (i = 0; i < state->handCount[currentPlayer]; i++)
 	{
-		if (i != handPos)	{
-			if (i == state->hand[currentPlayer][choice1])	{
-				if( i == choice1)	{
-					j++;
-				}
-			}
+		if (i != handPos && i == state->hand[currentPlayer][choice1] && i == choice1)	
+		{	
+			j++;
 		}
 	}
 	if (j < choice2)
