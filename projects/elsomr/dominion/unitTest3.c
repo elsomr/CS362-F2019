@@ -15,16 +15,15 @@
 
 int main() {
 
-   
-
     int i, j;
     int seed = 1000;
     int numPlayer = 4;
     int p, handCount, r;
-	int tempCoins, tempActions;
-	int pre4Count, tempPlayCount, post4Count, postPlayCount;
+	int tempCoins, tempSupply;
+	int prePlayCardCount[numPlayer];
+	int postPlayCardCount[numPlayer];
     int k[10] = {adventurer, council_room, estate, gardens, mine
-               , remodel, smithy, village, baron, great_hall};
+               , remodel, ambassador, village, baron, great_hall};
 
     struct gameState G;
     int maxHandCount = 8;
@@ -33,7 +32,7 @@ int main() {
 	char tmpResult[5];
 	
 
-	int estates[MAX_HAND];
+	int estate[MAX_HAND];
 	int coppers[MAX_HAND];
 	
 	for (i = 0; i < MAX_HAND; i++)	{
@@ -42,13 +41,16 @@ int main() {
 	}
 	
     printf ("TESTING ambassadorEffect():\n");
+
 	
     printf ("TESTING minionEffect():\n");
+
     for (p = 0; p < numPlayer; p++)
     {
         for (handCount = 1; handCount <= maxHandCount; handCount++)
         {
 			
+
 			printf("\nTest player %d with %d cards and chooses to lose 0 cards.\n", p, handCount);
 				memset(&G, 23, sizeof(struct gameState));   // clear the game state
 				r = initializeGame(numPlayer, k, seed, &G); // initialize a new game
@@ -220,6 +222,7 @@ int main() {
 					printf("Player %d: %d == %d", i, prePlayCardCount[i], postPlayCardCount[i]);
 					assertEq(prePlayCardCount[i], postPlayCardCount[i], failCounter, tmpResults);
 				}
+
 			printf("\nTest player %d with %d cards and chooses to gain 2 coins.\n", p, handCount);
 				memset(&G, 23, sizeof(struct gameState));   // clear the game state
 				r = initializeGame(numPlayer, k, seed, &G); // initialize a new game
@@ -322,6 +325,7 @@ int main() {
 				printf("Players with 5 cards discarded = %d < %d\n", pre4Count, postPlayCount);
 				printf("No players with more than 5 cards = %d == %d", 0, postPlayCount);
 				assertEq(tempPlayCount, postPlayCount, failCounter, tmpResult);
+
 				
         }
     }
