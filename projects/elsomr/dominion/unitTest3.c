@@ -204,7 +204,7 @@ int main() {
 					}
 				}
 				
-				ambassadorEffect(coppers, 2, &G, 0);
+				ambassadorEffect(copper, 2, &G, 0);
 				
 				//count number of cards all other players have
 				for (i = 0; i < numPlayer; i++)	{
