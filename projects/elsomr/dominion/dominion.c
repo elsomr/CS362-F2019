@@ -681,7 +681,7 @@ int getCost(int cardNumber)
     return -1;
 }
 
-void baronEffect(int choice1, struct gameState* state)	{
+int baronEffect(int choice1, struct gameState* state)	{
 	int currentPlayer;
 	currentPlayer= whoseTurn(state);
 	
@@ -810,7 +810,7 @@ void minionEffect(struct gameState *state, int handPos, int choice2, int choice1
 }
 
 
-void ambassadorEffect(int choice1, int choice2, struct gameState* state, int handPos)	{
+int ambassadorEffect(int choice1, int choice2, struct gameState* state, int handPos)	{
 	int j = 0;		//used to check if player has enough cards to discard
 	int i;
 	int currentPlayer = whoseTurn(state);
