@@ -36,12 +36,12 @@ int main() {
 
 	int estates[MAX_HAND];
 	int coppers[MAX_HAND];
-	int pawns[MAX_HAND];
+	int minions[MAX_HAND];
 	
 	for (i = 0; i < MAX_HAND; i++)	{
 		estates[i] = estate;
 		coppers[i] = copper;
-		pawns[i] = pawn;
+		minions[i] = minion;
 	}
 	
     printf ("TESTING tributeEffect():\n");
@@ -95,7 +95,7 @@ int main() {
 				G.handCount[p] = handCount;                 // set the number of cards on
 				G.handCount[nextPlayer] = handCount;
 
-				memcpy(G.hand[nextPlayer], pawns, sizeof(int) * handCount); 
+				memcpy(G.hand[nextPlayer], minions, sizeof(int) * handCount); 
 				
 				tempCards = G.handCount[nextPlayer];
 				tempActions = G.numActions;
@@ -121,7 +121,7 @@ int main() {
 				G.handCount[p] = handCount;                 // set the number of cards on
 				G.handCount[nextPlayer] = handCount;
 
-				memcpy(G.hand[nextPlayer], pawns, sizeof(int) * handCount); 
+				memcpy(G.hand[nextPlayer], minions, sizeof(int) * handCount); 
 				
 				tempCards = G.handCount[nextPlayer];
 				preCards = G.handCount[p];
