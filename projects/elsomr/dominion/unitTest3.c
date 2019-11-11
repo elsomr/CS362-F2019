@@ -61,7 +61,7 @@ int main() {
 				memcpy(G.hand[p], coppers, sizeof(int) * handCount); 
 				
 				tempCards = G.handCount[p];
-				tempSupply = G.supplyCount[G.hand[p][copper]];
+				tempSupply = G.supplyCount[copper];
 				
 				//count number of cards all other players have
 				for (i = 0; i < numPlayer; i++)	{
