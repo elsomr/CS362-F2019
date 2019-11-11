@@ -681,10 +681,11 @@ int getCost(int cardNumber)
     return -1;
 }
 
-void baronEffect(int choice1, struct gameState *state);
-	int currentPlayer = whoseTurn(state);
+void baronEffect(int choice1, struct gameState* state)	{
+	int currentPlayer;
+	currentPlayer= whoseTurn(state);
 	
-   state->numBuys++;//Increase buys by 1!
+	state->numBuys++;//Increase buys by 1!
    
 	if (choice1 > 0) { //Boolean true or going to discard an estate
 		int p = 0;//Iterator for hand!
@@ -933,10 +934,11 @@ void tributeEffect(struct gameState* state)	{
 }
 
 int mineEffect(struct gameState* state, int choice1, int choice2, int handPos )	{
-	 
+	
+	int currentPlayer = whoseTurn(state);
 	int j = state->hand[currentPlayer][choice1];  //store card we will trash
 	int i;
-	int currentPlayer = whoseTurn(state);
+	
 
 	if (state->hand[currentPlayer][choice1] < copper || state->hand[currentPlayer][choice1] > gold)
 	{
@@ -981,7 +983,7 @@ int cardEffect(int card, int choice1, int choice2, int choice3, struct gameState
     int index;
     int currentPlayer = whoseTurn(state);
     int nextPlayer = currentPlayer + 1;
-
+	int mineEffectResults;
     int tributeRevealedCards[2] = {-1, -1};
     int temphand[MAX_HAND];// moved above the if statement
     int drawntreasure=0;
@@ -1001,7 +1003,7 @@ int cardEffect(int card, int choice1, int choice2, int choice3, struct gameState
 		return 0;	
 	
     case mine:
-		int mineEffectResults = mineEffect(state, choice1, choice2);
+		mineEffectResults = mineEffect(state, choice1, choice2, handPos);
 		return mineEffectResults;
 	
 	case minion:

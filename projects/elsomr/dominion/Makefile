@@ -10,60 +10,57 @@ playdom: dominion.o playdom.c
 	gcc -o playdom playdom.c -g dominion.o rngs.o $(CFLAGS)
 #To run playdom you need to entere: ./playdom <any integer number> like ./playdom 10*/
 
-testDrawCard: testDrawCard.c dominion.o rngs.o
-	gcc  -o testDrawCard -g  testDrawCard.c dominion.o rngs.o $(CFLAGS)
+
+
 
 interface.o: interface.h interface.c
 	gcc -c interface.c -g  $(CFLAGS)
 
+
+assertEq.o: assertEq.h assertEq.c
+	gcc -c assertEq.c -g $(CFLAGS)
+
+unitTest1: unitTest1.c dominion.o rngs.o assertEq.o
+	gcc -o unitTest1 -g unitTest1.c dominion.o rngs.o assertEq.o $(CFLAGS)
+	
+unitTest2: unitTest2.c dominion.o rngs.o assertEq.o
+	gcc -o unitTest1 -g unitTest1.c dominion.o rngs.o assertEq.o $(CFLAGS)
+
+unitTest3: unitTest3.c dominion.o rngs.o assertEq.o
+	gcc -o unitTest1 -g unitTest1.c dominion.o rngs.o assertEq.o $(CFLAGS)
+
+unitTest4: unitTest4.c dominion.o rngs.o assertEq.o
+	gcc -o unitTest4 -g unitTest1.c dominion.o rngs.o assertEq.o $(CFLAGS)
+	
+unitTest5: unitTest5.c dominion.o rngs.o assertEq.o
+	gcc -o unitTest5 -g unitTest5.c dominion.o rngs.o assertEq.o $(CFLAGS)
+	
+runtests: unitTest1 unitTest2 
+	./unitTest1 &> unittestresult.out
+	#gcov dominion.c >> unittestresult.out
+	#cat dominion.c.gcov >> unittestresult.out
+	
+	./unitTest2 &> unittestresult.out
+	gcov dominion.c >> unittestresult.out
+	cat dominion.c.gcov >> unittestresult.out
+	
+	# ./unitTest3 &> unittestresult.out
+	# gcov dominion.c >> unittestresult.out
+	# cat dominion.c.gcov >> unittestresult.out
+	
+	# ./unitTest4 &> unittestresult.out
+	# gcov dominion.c >> unittestresult.out
+	# cat dominion.c.gcov >> unittestresult.out
+	
+	# ./unitTest5 &> unittestresult.out
+	# gcov dominion.c >> unittestresult.out
+	# cat dominion.c.gcov >> unittestresult.out
+
+
 player: player.c interface.o
 	gcc -o player player.c -g  dominion.o rngs.o interface.o $(CFLAGS)
 
-assert.o: assert.c 
-	gcc -c assert.c -g $(CFLAGS)
-	
-unitTest1.o: assert.o dominion.o rngs.o
-	gcc -o unitTest1 -g unitTest1.c dominion.o rngs.o $(CFLAGS)
-
-unitTest2.o: assert.o dominion.o rngs.o
-	gcc -o unitTest2 -g unitTest2.c dominion.o rngs.o $(CFLAGS)
-
-unitTest3.o: assert.o dominion.o rngs.o
-	gcc -o unitTest3 -g unitTest3.c dominion.o rngs.o $(CFLAGS)
-	
-unitTest4.o: assert.o dominion.o rngs.o
-	gcc -o unitTest4 -g unitTest4.c dominion.o rngs.o $(CFLAGS)
-	
-unitTest5.o: assert.o dominion.o rngs.o
-	gcc -o unitTest5 -g unitTest5.c dominion.o rngs.o $(CFLAGS)
-
-
-runtests: unitTest
-	./unitTest1 &> unittestresults.out
-	gcov -b -f dominion.c >> unittestresults.out
-	cat dominion.c.gcov >> unittestresults.out
-	
-	./unitTest2 &> unittestresults.out
-	gcov -b -f dominion.c >> unittestresults.out
-	cat dominion.c.gcov >> unittestresults.out
-	
-	./unitTest3 &> unittestresults.out
-	gcov -b -f dominion.c >> unittestresults.out
-	cat dominion.c.gcov >> unittestresults.out
-	
-	./unitTest4 &> unittestresults.out
-	gcov -b -f dominion.c >> unittestresults.out
-	cat dominion.c.gcov >> unittestresults.out
-	
-	./unitTest5 &> unittestresults.out
-	gcov -b -f dominion.c >> unittestresults.out
-	cat dominion.c.gcov >> unittestresults.out
-	
-
-
-all: playdom player 
+all: playdom player runtests 
 
 clean:
-	rm -f *.o playdom.exe playdom player player.exe  *.gcov *.gcda *.gcno *.so *.out \
-	unitTest1 unitTest1.exe unitTest2 unitTest2.exe unitTest3 unitTest3.exe unitTest4 unitTest4.exe \
-	unitTest5 unitTest5.exe
+	rm -f *.o playdom.exe playdom player player.exe  *.gcov *.gcda *.gcno *.so *.out testDrawCard testDrawCard.exe

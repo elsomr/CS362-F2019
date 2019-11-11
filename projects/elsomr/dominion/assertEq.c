@@ -8,16 +8,17 @@
  */
 
 #include <string.h>
-using std::string
+#include "assertEq.h"
 
-char* assert(expected, outcome, failCounter)	{
+void assertEq(int expected, int outcome, int* failCounter, char* result)	{
 	
-	if {expected == outcome} 	{
-		result[] = "PASS";
+	if (expected == outcome) 	{
+		result = "PASS";
 	}
 	else	{
-		failCounter++;
-		result[] = "FAIL";
+		(*failCounter)++;
+		result = "FAIL";
 	}
-	return result;
+	
+	printf("%s\n", result);
 }
