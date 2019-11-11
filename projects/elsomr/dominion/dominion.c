@@ -816,8 +816,12 @@ int ambassadorEffect(int choice1, int choice2, struct gameState* state, int hand
 	int currentPlayer = whoseTurn(state);
     int nextPlayer = currentPlayer + 1;
 	
-	if (choice2 > 2 || choice2 <= 0 || choice1==handPos)
+	if (choice2 > 2 || choice2 <= 0)
 	{
+		return -1;
+	}
+	
+	if (choice1==handPos)	{
 		return -1;
 	}
 
@@ -833,9 +837,10 @@ int ambassadorEffect(int choice1, int choice2, struct gameState* state, int hand
 		return -1;
 	}
 
-	if (DEBUG)
+	if (DEBUG)	{
 		printf("Player %d reveals card number: %d\n", currentPlayer, state->hand[currentPlayer][choice1]);
-
+	}
+	
 	/*=====================================================
 		Bug for Assignment 2 (uncomment state->supply line
 	========================================================*/
