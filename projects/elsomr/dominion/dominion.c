@@ -829,7 +829,7 @@ int ambassadorEffect(int choice1, int choice2, struct gameState* state, int hand
 	{
 		if (i != handPos)	{
 			if (i == state->hand[currentPlayer][choice1])	{
-				if( i != choice1)	{
+				if( i == choice1)	{
 					j++;
 				}
 			}
