@@ -43,8 +43,6 @@ int main() {
 	
     printf ("TESTING ambassadorEffect():\n");
 
-	
-    printf ("TESTING minionEffect():\n");
 
     for (p = 0; p < numPlayer; p++)
     {
@@ -190,8 +188,8 @@ int main() {
 				memset(postPlayCardCount, 0, numPlayer);
 				//make hand have all estates
 				memcpy(G.hand[p], estates, sizeof(int) * handCount); 
+				gainCard(copper, &G, 0, p);
 				
-				printf("PASS\n\n\n");
 				tempCards = G.handCount[p];
 				tempSupply = G.supplyCount[copper];
 				
@@ -210,7 +208,6 @@ int main() {
 				for (i = 0; i < numPlayer; i++)	{
 					for (j = 0; j < handCount; j++)	{
 						if (i != p && G.hand[i][j] == copper)	{
-							postPlayCardCount[i]++;
 							postPlayCardCount[i]++;
 						}
 					}
@@ -254,7 +251,6 @@ int main() {
 				for (i = 0; i < numPlayer; i++)	{
 					for (j = 0; j < handCount; j++)	{
 						if (i != p && G.hand[i][j] == copper)	{
-							postPlayCardCount[i]++;
 							postPlayCardCount[i]++;
 						}
 					}
