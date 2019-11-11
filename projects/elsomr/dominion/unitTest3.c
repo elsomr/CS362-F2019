@@ -85,8 +85,8 @@ int main() {
 				
 				printf("Card is discarded = %d == %d", tempCards-0, G.handCount[p]);
 				assertEq(tempCards-0, G.handCount[p], failCounter, tmpResult);
-				printf("Card is added to supply pile = %d == %d", tempSupply - 0, G.supplyCount[G.hand[p][copper]]);
-				assertEq(tempSupply-0, G.supplyCount[G.hand[p][copper]], failCounter, tmpResult);
+				printf("Card is added to supply pile = %d == %d", tempSupply - 0, G.supplyCount[copper]);
+				assertEq(tempSupply-0, G.supplyCount[copper], failCounter, tmpResult);
 				printf("Each player gained the shown card");
 				for (i=0; i< numPlayer; i++)	{
 					printf("Player %d: %d == %d", i, prePlayCardCount[i]+1, postPlayCardCount[i]);
@@ -106,7 +106,7 @@ int main() {
 				memcpy(G.hand[p], coppers, sizeof(int) * handCount); 
 				
 				tempCards = G.handCount[p];
-				tempSupply = G.supplyCount[G.hand[p][copper]];
+				tempSupply = G.supplyCount[copper];
 				
 				//count number of cards all other players have
 				for (i = 0; i < numPlayer; i++)	{
@@ -130,8 +130,8 @@ int main() {
 				
 				printf("Card is discarded = %d == %d", tempCards-1, G.handCount[p]);
 				assertEq(tempCards-1, G.handCount[p], failCounter, tmpResult);
-				printf("Card is added to supply pile = %d == %d", tempSupply - 1, G.supplyCount[G.hand[p][copper]]);
-				assertEq(tempSupply-1, G.supplyCount[G.hand[p][copper]], failCounter, tmpResult);
+				printf("Card is added to supply pile = %d == %d", tempSupply - 1, G.supplyCount[copper]);
+				assertEq(tempSupply-1, G.supplyCount[copper], failCounter, tmpResult);
 				printf("Each player gained the shown card");
 				for (i=0; i< numPlayer; i++)	{
 					printf("Player %d: %d == %d", i, prePlayCardCount[i]+1, postPlayCardCount[i]);
@@ -148,7 +148,7 @@ int main() {
 				memcpy(G.hand[p], coppers, sizeof(int) * handCount); 
 				
 				tempCards = G.handCount[p];
-				tempSupply = G.supplyCount[G.hand[p][copper]];
+				tempSupply = G.supplyCount[copper];
 				
 				//count number of cards all other players have
 				for (i = 0; i < numPlayer; i++)	{
@@ -172,8 +172,8 @@ int main() {
 				
 				printf("Card is discarded = %d == %d", tempCards-2, G.handCount[p]);
 				assertEq(tempCards-2, G.handCount[p], failCounter, tmpResult);
-				printf("Card is added to supply pile = %d == %d", tempSupply - 2, G.supplyCount[G.hand[p][copper]]);
-				assertEq(tempSupply-2, G.supplyCount[G.hand[p][copper]], failCounter, tmpResult);
+				printf("Card is added to supply pile = %d == %d", tempSupply - 2, G.supplyCount[copper]);
+				assertEq(tempSupply-2, G.supplyCount[copper], failCounter, tmpResult);
 				printf("Each player gained the shown card");
 				for (i=0; i< numPlayer; i++)	{
 					printf("Player %d: %d == %d", i, prePlayCardCount[i]+1, postPlayCardCount[i]);
@@ -193,7 +193,7 @@ int main() {
 				
 				printf("PASS\n\n\n");
 				tempCards = G.handCount[p];
-				tempSupply = G.supplyCount[G.hand[p][copper]];
+				tempSupply = G.supplyCount[copper];
 				
 				//count number of cards all other players have
 				for (i = 0; i < numPlayer; i++)	{
@@ -211,14 +211,15 @@ int main() {
 					for (j = 0; j < handCount; j++)	{
 						if (i != p && G.hand[i][j] == copper)	{
 							postPlayCardCount[i]++;
+							postPlayCardCount[i]++;
 						}
 					}
 				}
 				
 				printf("Card is not discarded = %d == %d", tempCards, G.handCount[p]);
 				assertEq(tempCards, G.handCount[p], failCounter, tmpResult);
-				printf("Card is not added to supply pile = %d == %d", tempSupply, G.supplyCount[G.hand[p][copper]]);
-				assertEq(tempSupply, G.supplyCount[G.hand[p][copper]], failCounter, tmpResult);
+				printf("Card is not added to supply pile = %d == %d", tempSupply, G.supplyCount[copper]);
+				assertEq(tempSupply, G.supplyCount[copper], failCounter, tmpResult);
 				printf("Each player did not gain the shown card");
 				for (i=0; i< numPlayer; i++)	{
 					printf("Player %d: %d == %d", i, prePlayCardCount[i], postPlayCardCount[i]);
