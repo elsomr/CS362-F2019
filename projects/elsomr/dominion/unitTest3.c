@@ -22,7 +22,7 @@ int main() {
 	int tempCoins, tempSupply, tempActions, tempPlayCount, tempCards;
 	int prePlayCardCount[numPlayer];
 	int postPlayCardCount[numPlayer];
-	int pre4Count, post4Count, postPlayCount, 
+	int pre4Count, post4Count, postPlayCount;
     int k[10] = {adventurer, council_room, estate, gardens, mine
                , remodel, ambassador, village, baron, great_hall};
 
