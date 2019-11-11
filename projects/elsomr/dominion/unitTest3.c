@@ -135,7 +135,7 @@ int main() {
 				printf("Each player gained the shown card");
 				for (i=0; i< numPlayer; i++)	{
 					printf("Player %d: %d == %d", i, prePlayCardCount[i]+1, postPlayCardCount[i]);
-					assertEq(prePlayCardCount[i]+1, postPlayCardCount[i], failCounter, tmpResults);
+					assertEq(prePlayCardCount[i]+1, postPlayCardCount[i], failCounter, tmpResult);
 				}
 				
 				
@@ -177,7 +177,7 @@ int main() {
 				printf("Each player gained the shown card");
 				for (i=0; i< numPlayer; i++)	{
 					printf("Player %d: %d == %d", i, prePlayCardCount[i]+1, postPlayCardCount[i]);
-					assertEq(prePlayCardCount[i]+1, postPlayCardCount[i], failCounter, tmpResults);
+					assertEq(prePlayCardCount[i]+1, postPlayCardCount[i], failCounter, tmpResult);
 				}
 
 			printf("\nTest player %d with %d cards and chooses to lose more cards than they have.\n", p, handCount);
@@ -221,7 +221,7 @@ int main() {
 				printf("Each player did not gain the shown card");
 				for (i=0; i< numPlayer; i++)	{
 					printf("Player %d: %d == %d", i, prePlayCardCount[i], postPlayCardCount[i]);
-					assertEq(prePlayCardCount[i], postPlayCardCount[i], failCounter, tmpResults);
+					assertEq(prePlayCardCount[i], postPlayCardCount[i], failCounter, tmpResult);
 				}
 
 			printf("\nTest player %d with %d cards and chooses to gain 2 coins.\n", p, handCount);
