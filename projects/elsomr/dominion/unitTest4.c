@@ -57,7 +57,7 @@ int main() {
 				memset(&G, 23, sizeof(struct gameState));   // clear the game state
 				r = initializeGame(numPlayer, k, seed, &G); // initialize a new game
 				
-				if (p < (numPlayers - 1)) {
+				if (p < (numPlayer - 1)) {
 					nextPlayer = p + 1;//Still safe to increment
 				}
 				else {
@@ -69,15 +69,15 @@ int main() {
 				memcpy(G.hand[nextPlayer], coppers, sizeof(int) * handCount); 
 				
 				tempCards = G.handCount[nextPlayer];
-				tempCoins = G.coins
+				tempCoins = G.coins;
 				
 				
 				tributeEffect(&G);
 				
 				printf("Player on left loses 2 cards = %d == %d", tempCards-2, G.handCount[nextPlayer]);
 				assertEq(tempCards-2, G.handCount[nextPlayer], failCounter, tmpResult);
-				printf("Player gains coins = %d == %d", tempCoin + 4, G.coins);
-				assertEq(tempCoin + 4, G.coins, failCounter, tmpResult);
+				printf("Player gains coins = %d == %d", tempCoins + 4, G.coins);
+				assertEq(tempCoins + 4, G.coins, failCounter, tmpResult);
 				
 				
 			
@@ -152,15 +152,15 @@ int main() {
 				memcpy(G.hand[nextPlayer], coppers, sizeof(int) * handCount); 
 				
 				tempCards = G.handCount[nextPlayer];
-				tempCoins = G.coins
+				tempCoins = G.coins;
 				
 				
 				tributeEffect(&G);
 				
 				printf("Player on left loses 1 card = %d == %d", tempCards-1, G.handCount[nextPlayer]);
 				assertEq(tempCards-1, G.handCount[nextPlayer], failCounter, tmpResult);
-				printf("Player gains coins = %d == %d", tempCoin + 2, G.coins);
-				assertEq(tempCoin + 2, G.coins, failCounter, tmpResult);
+				printf("Player gains coins = %d == %d", tempCoins+ 2, G.coins);
+				assertEq(tempCoins + 2, G.coins, failCounter, tmpResult);
 		
 			printf("\nTest player %d with %d cards and player on left has 1 card in deck pile.\n", p, handCount);
 				memset(&G, 23, sizeof(struct gameState));   // clear the game state
@@ -179,15 +179,15 @@ int main() {
 				memcpy(G.hand[nextPlayer], coppers, sizeof(int) * handCount); 
 				
 				tempCards = G.handCount[nextPlayer];
-				tempCoins = G.coins
+				tempCoins = G.coins;
 				
 				
 				tributeEffect(&G);
 				
 				printf("Player on left loses 1 card = %d == %d", tempCards-1, G.handCount[nextPlayer]);
 				assertEq(tempCards-1, G.handCount[nextPlayer], failCounter, tmpResult);
-				printf("Player gains coins = %d == %d", tempCoin + 2, G.coins);
-				assertEq(tempCoin + 2, G.coins, failCounter, tmpResult);
+				printf("Player gains coins = %d == %d", tempCoins + 2, G.coins);
+				assertEq(tempCoins + 2, G.coins, failCounter, tmpResult);
 			
 			printf("\nTest player %d with %d cards and player on left has 0 cards.\n", p, handCount);
 				memset(&G, 23, sizeof(struct gameState));   // clear the game state
@@ -206,15 +206,15 @@ int main() {
 				memcpy(G.hand[nextPlayer], coppers, sizeof(int) * handCount); 
 				
 				tempCards = G.handCount[nextPlayer];
-				tempCoins = G.coins
+				tempCoins = G.coins;
 				
 				
 				tributeEffect(&G);
 				
 				printf("Player on left loses 0 cards = %d == %d", tempCards, G.handCount[nextPlayer]);
 				assertEq(tempCards-1, G.handCount[nextPlayer], failCounter, tmpResult);
-				printf("Player does not gain coins = %d == %d", tempCoin, G.coins);
-				assertEq(tempCoin, G.coins, failCounter, tmpResult);
+				printf("Player does not gain coins = %d == %d", tempCoins, G.coins);
+				assertEq(tempCoins, G.coins, failCounter, tmpResult);
 				
 				
 			printf("\nTest player %d with %d cards and player on left has 0 cards in deck pile.\n", p, handCount);
@@ -234,15 +234,15 @@ int main() {
 				memcpy(G.hand[nextPlayer], coppers, sizeof(int) * handCount); 
 				
 				tempCards = G.handCount[nextPlayer];
-				tempCoins = G.coins
+				tempCoins = G.coins;
 				
 				
 				tributeEffect(&G);
 				
 				printf("Player on left loses 1 card = %d == %d", tempCards-1, G.handCount[nextPlayer]);
 				assertEq(tempCards-1, G.handCount[nextPlayer], failCounter, tmpResult);
-				printf("Player gains coins = %d == %d", tempCoin + 2, G.coins);
-				assertEq(tempCoin + 2, G.coins, failCounter, tmpResult);
+				printf("Player gains coins = %d == %d", tempCoins + 2, G.coins);
+				assertEq(tempCoins + 2, G.coins, failCounter, tmpResult);
 		}	
     }
 	if (failCounter == 0)	{
