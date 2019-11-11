@@ -225,7 +225,50 @@ int main() {
 					printf("Player %d: %d == %d", i, prePlayCardCount[i], postPlayCardCount[i]);
 					assertEq(prePlayCardCount[i], postPlayCardCount[i], failCounter, tmpResult);
 				}
+			printf("\nTest player %d with %d cards and chooses to discard an invalid amount.\n", p, handCount);
 
+				memset(&G, 23, sizeof(struct gameState));   // clear the game state
+				r = initializeGame(numPlayer, k, seed, &G); // initialize a new game
+				G.handCount[p] = handCount;                 // set the number of cards on 				
+
+				memset(prePlayCardCount, 0, numPlayer);
+				memset(postPlayCardCount, 0, numPlayer);
+				//make hand have all estates
+				memcpy(G.hand[p], estates, sizeof(int) * handCount); 
+				
+				tempCards = G.handCount[p];
+				tempSupply = G.supplyCount[copper];
+				
+				//count number of cards all other players have
+				for (i = 0; i < numPlayer; i++)	{
+					for (j = 0; j < handCount; j++)	{
+						if (i!=p && G.hand[i][j] == copper)	{
+							prePlayCardCount[i]++;
+						}
+					}
+				}
+				
+				ambassadorEffect(copper, 5, &G, 0);
+				
+				//count number of cards all other players have
+				for (i = 0; i < numPlayer; i++)	{
+					for (j = 0; j < handCount; j++)	{
+						if (i != p && G.hand[i][j] == copper)	{
+							postPlayCardCount[i]++;
+							postPlayCardCount[i]++;
+						}
+					}
+				}
+				
+				printf("Card is not discarded = %d == %d", tempCards, G.handCount[p]);
+				assertEq(tempCards, G.handCount[p], failCounter, tmpResult);
+				printf("Card is not added to supply pile = %d == %d", tempSupply, G.supplyCount[copper]);
+				assertEq(tempSupply, G.supplyCount[copper], failCounter, tmpResult);
+				printf("Each player did not gain the shown card");
+				for (i=0; i< numPlayer; i++)	{
+					printf("Player %d: %d == %d", i, prePlayCardCount[i], postPlayCardCount[i]);
+					assertEq(prePlayCardCount[i], postPlayCardCount[i], failCounter, tmpResult);
+				}
 		}	
     }
 	if (failCounter == 0)	{
