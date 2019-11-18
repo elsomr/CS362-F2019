@@ -127,7 +127,7 @@ int main () {
 		G.supplyCount[estate] = rand() % 12;
 		//randomly gain an estate card 50% of the time
 		if (rand() % 2)	{
-			gainCard(estate, G, 0, p);
+			gainCard(estate, &G, 0, p);
 		}
 
 		//call check function
