@@ -44,16 +44,12 @@ int checkTributeCard(struct gameState *post, int numPlayers, int p, int nextPlay
 		tributeCards[1] = pre.deck[nextPlayer][pre.deckCount[nextPlayer]-2];
 	}
 	
-	printf("Tribute Cards %d %d\n\n", post->deck[nextPlayer][post->deckCount[nextPlayer]-1], post->deck[nextPlayer][post->deckCount[nextPlayer]-2]);
 
     tributeEffect (post);
 
     // printf ("Tribute Effect POST: chioce %d p %d Coins %d Actions %d HC %d\n\n\n",
     	  // choice1, p, post->coins, post->numActions, post->handCount[p]);
 
-	
-	
-	
 	//count post treasure, action, and victory cards
 	for (i=0; i < 2; i++)	{
 		//4-6
@@ -74,39 +70,48 @@ int checkTributeCard(struct gameState *post, int numPlayers, int p, int nextPlay
 
 	//if a treasure was taken out of next players hand
 	if (treasureCount > 0)	{
-		printf("\n%d Treasure Card(s) were Revealed", treasureCount);
+		printf("\n%d Treasure Card(s) were Revealed\n", treasureCount);
 		printf("\nCoins increased = ");
 		assertEq(pre.coins+ (treasureCount*2), post->coins, &failCounter, tmpResult);
-		printf("Actions increase = ");
-		assertEq( pre.numActions + (treasureCount * 2),  post->numActions, &failCounter, tmpResult);
-		printf("Next player hand decreased by number of treasure cards revealed= "); 
-		assertEq(pre.handCount[nextPlayer] - treasureCount, post->handCount[nextPlayer], &failCounter, tmpResult);
 		
 		
 	}
+	//if no treasure cards revealed
+	else	{
+		printf("\nCoins static = ");
+		assertEq(pre.coins, post->coins, &failCounter, tmpResult);
+	}
+	
 	//if an action card was revealed
 	if (actionCount > 0)	{
-		printf("\n%d Action Card(s) were Revealed", actionCount);
-		printf("\nCoins static = ");
-		assertEq(pre.coins, post->coins, &failCounter, tmpResult);
+		printf("\n%d Action Card(s) were Revealed\n", actionCount);
+		
 		printf("Actions increase = ");
 		assertEq( pre.numActions + ((actionCount) * 2),  post->numActions, &failCounter, tmpResult);
-		printf("Next player hand decreased by number of action cards revealed= "); 
-		assertEq(pre.handCount[nextPlayer] - (actionCount), post->handCount[nextPlayer], &failCounter, tmpResult);
+		
 		
 	}
+	//if no action cards revealed
+	else	{
+		printf("Actions static = ");
+		assertEq( pre.numActions,  post->numActions, &failCounter, tmpResult);
+	}
+	
 	//if a victory card was revealed
 	if (victoryCount > 0)	{
-		printf("\n%d Victory Card(s) were Revealed", victoryCount);
-		printf("\nCoins static = ");
-		assertEq(pre.coins, post->coins, &failCounter, tmpResult);
-		printf("Actions increase = ");
-		assertEq( pre.numActions + (victoryCount) * 2,  post->numActions, &failCounter, tmpResult);
+		printf("\n%d Victory Card(s) were Revealed\n", victoryCount);
 		printf("Current Player gains cards = ");
 		assertEq(pre.handCount[p] + ((victoryCount) * 2), post->handCount[p], &failCounter, tmpResult);
-		printf("Next player hand decreased by number of victory cards revealed= "); 
-		assertEq(pre.handCount[nextPlayer] - (victoryCount), post->handCount[nextPlayer], &failCounter, tmpResult);
 	}
+	//if no victory cards revealed
+	else	{
+		printf("Current Player card count static = ");
+		assertEq(pre.handCount[p], post->handCount[p], &failCounter, tmpResult);
+	}
+	
+	printf("Next player hand decreased by number of cards revealed= "); 
+	assertEq(pre.handCount[nextPlayer] - treasureCount - actionCount - victoryCount, post->handCount[nextPlayer], &failCounter, tmpResult);
+	
 	return failCounter;
 }
 
