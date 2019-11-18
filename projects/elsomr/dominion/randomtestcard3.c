@@ -32,6 +32,20 @@ int checkTributeCard(struct gameState *post, int numPlayers, int p, int nextPlay
 
     // printf ("Tribute Effect PRE: choice1 %d choice2 %d p %d Coins %d Actions %d HC %d",
     	  // choice1, p, pre.coins, pre.numActions, pre.handCount[p]);
+		  
+	//count post treasure, action, and victory cards
+	for (j=0; j < post->deckCount[nextPlayer]; j++)	{
+		if (post->deck[nextPlayer][j] == copper || post->deck[nextPlayer][j] == silver ||  post->deck[nextPlayer][j] == gold)	{
+			preTreasure++;
+		}
+		else if ( post->deck[nextPlayer][j] == estate ||  post->deck[nextPlayer][j] == duchy || post->deck[nextPlayer][j] == province\
+		||  post->deck[nextPlayer][j] == gardens ||  post->deck[nextPlayer][j] == great_hall)	{
+			preVictory++;
+		}	
+		else {
+			preAction++;
+		}
+	}
 
     tributeEffect (post);
 
@@ -40,18 +54,18 @@ int checkTributeCard(struct gameState *post, int numPlayers, int p, int nextPlay
 
 
 	//count pre treasure, action, and victory cards
-	for (j=0; j < pre.deckCount[nextPlayer]; j++)	{
-		if (pre.deck[nextPlayer][j] == copper || pre.deck[nextPlayer][j] == silver ||  pre.deck[nextPlayer][j] == gold)	{
-			preTreasure++;
-		}
-		else if ( pre.deck[nextPlayer][j] == estate ||  pre.deck[nextPlayer][j] == duchy || pre.deck[nextPlayer][j] == province\
-		||  pre.deck[nextPlayer][j] == gardens ||  pre.deck[nextPlayer][j] == great_hall)	{
-			preVictory++;
-		}	
-		else {
-			preAction++;
-		}
-	}
+	// for (j=0; j < pre.deckCount[nextPlayer]; j++)	{
+		// if (pre.deck[nextPlayer][j] == copper || pre.deck[nextPlayer][j] == silver ||  pre.deck[nextPlayer][j] == gold)	{
+			// preTreasure++;
+		// }
+		// else if ( pre.deck[nextPlayer][j] == estate ||  pre.deck[nextPlayer][j] == duchy || pre.deck[nextPlayer][j] == province\
+		// ||  pre.deck[nextPlayer][j] == gardens ||  pre.deck[nextPlayer][j] == great_hall)	{
+			// preVictory++;
+		// }	
+		// else {
+			// preAction++;
+		// }
+	// }
 	
 	printf("\n\nPre: Action %d, Treasure %d Victory %d\n", preAction, preTreasure, preVictory);
 	
