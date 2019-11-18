@@ -58,7 +58,7 @@ int checkBaronCard(int choice1, int Numplayers, int p, struct gameState *post) {
 int main () {
 	srand(time(0));
 
-    int i, n, r, p, deckCount, discardCount, handCount, choice1, numPlayers;
+    int i, it, n, r, p, deckCount, discardCount, handCount, choice1, numPlayers;
 	int failCounter = 0;
 
     int k[10] = {adventurer, council_room, feast, gardens, mine,
@@ -94,7 +94,7 @@ int main () {
 		G.supplyCount[estate] = rand() % 12;
 		//get random hand
 		for (it = 0; it < MAX_HAND; it++) {
-			drawCard(state->whoseTurn, state);
+			drawCard(G->whoseTurn, state);
 		}
 
 		//call check function
