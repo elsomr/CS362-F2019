@@ -159,9 +159,9 @@ int main () {
 		G.whoseTurn = p;
 		G.numPlayers = numPlayers;
 		//store random cards in nextPlayers hand
-		for (j=0; j < G.handCount[nextPlayer] ; j++)	{
+		for (j=0; j < G.deckCount[nextPlayer] ; j++)	{
 			index = rand() % 10;
-			G.hand[nextPlayer][j] = k[index];
+			G.deck[nextPlayer][j] = k[index];
 		}
 
 		//call check function
