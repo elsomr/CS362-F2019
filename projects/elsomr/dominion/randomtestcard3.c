@@ -52,6 +52,7 @@ int checkTributeCard(struct gameState *post, int numPlayers, int p, int nextPlay
 
 	
 	
+	
 	//count post treasure, action, and victory cards
 	for (j=0; j < 2; j++)	{
 		//4-6
@@ -68,7 +69,7 @@ int checkTributeCard(struct gameState *post, int numPlayers, int p, int nextPlay
 			actionCount++;
 		}
 	}
-	
+	printf("\nTreasure %d, Action %d, Victory %d\n", treasureCount, actionCount, victoryCount);
 
 	//if a treasure was taken out of next players hand
 	if (treasureCount > 0)	{
