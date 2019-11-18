@@ -27,13 +27,13 @@ interface.o: interface.h interface.c
 	gcc -c interface.c -g  $(CFLAGS)
 
 randomtestresults: testBaronCard testMinionCard testTributeCard
-	./testBaronCard &> unittestresult.out
+	./testBaronCard &> randomtestresults.out
 	gcov -b -f dominion.c >> randomtestresults.out
 	
-	./testMinionCard &> unittestresult.out
+	./testMinionCard &> randomtestresults.out
 	gcov -b -f dominion.c >> randomtestresults.out
 	
-	./testTributeCard &> unittestresult.out
+	./testTributeCard &> randomtestresults.out
 	gcov -b -f dominion.c >> randomtestresults.out
 
 
