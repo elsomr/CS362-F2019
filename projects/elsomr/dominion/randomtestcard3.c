@@ -46,6 +46,8 @@ int checkTributeCard(struct gameState *post, int numPlayers, int p, int nextPlay
 			preAction++;
 		}
 	}
+	
+	printf("Tribute Cards %d %d\n\n", post->deck[nextPlayer][post->deckCount[nextPlayer]-1], post->deck[nextPlayer][post->deckCount[nextPlayer]-2]);
 
     tributeEffect (post);
 
