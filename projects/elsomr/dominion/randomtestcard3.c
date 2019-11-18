@@ -70,6 +70,8 @@ int checkTributeCard(struct gameState *post, int numPlayers, int p, int nextPlay
 	// }
 	
 	printf("\n\nPre: Action %d, Treasure %d Victory %d\n", preAction, preTreasure, preVictory);
+	printf("NExt player deck count = ");
+	assertEq(pre.deckCount[nextPlayer], post->deckCount[nextPlayer], &failCounter, tmpResult);
 	
 	//count post treasure, action, and victory cards
 	for (j=0; j < post->deckCount[nextPlayer]; j++)	{
