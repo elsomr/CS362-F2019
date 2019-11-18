@@ -130,7 +130,7 @@ int main () {
 		for (it = 0; it < handCount; it++) {
 			drawCard(G.whoseTurn, &G);
 			for (j = 0; j < 10; j++)	{
-				if k[j] == G.hand[p][it]	{
+				if (k[j] == G.hand[p][it])	{
 					printf("%d	,	", j);
 				}
 			}
