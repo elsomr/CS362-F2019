@@ -120,20 +120,14 @@ int main () {
 		//pick random deck, discard, and handcount values
         G.deckCount[p] = rand() % MAX_DECK;
         G.discardCount[p] = rand() % MAX_DECK;
-        //G.handCount[p] = rand() % MAX_HAND;
+        G.handCount[p] = rand() % MAX_HAND;
 		//get random coin amoint
 		G.coins = 100;
 		G.whoseTurn = p;
 		G.supplyCount[estate] = rand() % 12;
-		//get random hand wiht a random handcount
-		handCount = rand() % MAX_HAND;
-		for (it = 0; it < handCount; it++) {
-			drawCard(G.whoseTurn, &G);
-			for (j = 0; j < 10; j++)	{
-				if (k[j] == G.hand[p][it])	{
-					printf("%d	,	", j);
-				}
-			}
+		//randomly gain an estate card 50% of the time
+		if (rand() % 2)	{
+			gainCard(estate, G, 0, p);
 		}
 
 		//call check function
