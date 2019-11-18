@@ -42,7 +42,7 @@ int checkTributeCard(struct gameState *post, int numPlayers, int p, int nextPlay
 	//count pre treasure, action, and victory cards
 	for (j=0; j < pre.handCount[nextPlayer]; j++)	{
 		if (pre.hand[nextPlayer][j] == copper || pre.hand[nextPlayer][j] == silver ||  pre.hand[nextPlayer][j] == gold)	{
-			preTreasure++;
+			print("pt\n");
 		}
 		else if ( pre.hand[nextPlayer][j] == estate ||  pre.hand[nextPlayer][j] == duchy || pre.hand[nextPlayer][j] == province\
 		||  pre.hand[nextPlayer][j] == gardens ||  pre.hand[nextPlayer][j] == great_hall)	{
@@ -52,6 +52,8 @@ int checkTributeCard(struct gameState *post, int numPlayers, int p, int nextPlay
 			preAction++;
 		}
 	}
+	
+	printf("\n\nPre: Action %d, Treasure %d Victory %d\n", preAction, preTreasure, preVictory);
 	
 	//count post treasure, action, and victory cards
 	for (j=0; j < post->handCount[nextPlayer]; j++)	{
@@ -66,6 +68,8 @@ int checkTributeCard(struct gameState *post, int numPlayers, int p, int nextPlay
 			postAction++;
 		}
 	}
+	
+	printf("\n\nPost: Action %d, Treasure %d Victory %d\n", postAction, postTreasure, postVictory);
 	
 	
 	//if a treasure was taken out of next players hand
@@ -158,7 +162,6 @@ int main () {
 		for (j=0; j < G.handCount[nextPlayer] ; j++)	{
 			index = rand() % 10;
 			G.hand[nextPlayer][j] = k[index];
-			printf("Card == %d\n", G.hand[nextPlayer][j]);
 		}
 
 		//call check function
