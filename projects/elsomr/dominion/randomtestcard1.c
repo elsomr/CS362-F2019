@@ -11,6 +11,7 @@
 #include <stdio.h>
 #include "assertEq.h"
 #include "rngs.h"
+#include <time.h>
 
 
 int checkBaronCard(int choice1, int Numplayers, int p, struct gameState *post) {
@@ -55,6 +56,7 @@ int checkBaronCard(int choice1, int Numplayers, int p, struct gameState *post) {
 }
 
 int main () {
+	srand(time(0));
 
     int i, n, r, p, deckCount, discardCount, handCount, choice1, numPlayers;
 	int failCounter = 0;
@@ -74,18 +76,18 @@ int main () {
 
     for (n = 0; n < 2000; n++) {
         for (i = 0; i < sizeof(struct gameState); i++) {
-            ((char*)&G)[i] = (int)Random() * 256;
+            ((char*)&G)[i] = rand() * 256;
         }
 		//pick a random choice (either 0 or 1)
-		choice1 = (int)Random() % 2;
+		choice1 = rand() % 2;
 		//pick a random number of player(between 2 - 4)
-		numPlayers = (int)Random() % 3 + 2;
+		numPlayers = rand() % 3 + 2;
 		//pick a random player
-        p = (int)Random() % numPlayers;
+        p = rand() % numPlayers;
 		//pick random deck, discard, and handcount values
-        G.deckCount[p] = (int)Random() % MAX_DECK;
-        G.discardCount[p] = (int)Random() % MAX_DECK;
-        G.handCount[p] = (int)Random() % MAX_HAND;
+        G.deckCount[p] = rand() % MAX_DECK;
+        G.discardCount[p] = rand() % MAX_DECK;
+        G.handCount[p] = rand() % MAX_HAND;
 		//get random coin amoint
 		G.coins = 100;
 		G.whoseTurn = p;
