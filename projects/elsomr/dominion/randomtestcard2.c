@@ -48,6 +48,7 @@ int checkMinionCard(struct gameState *post, int handPos, int choice1, int choice
 		}
 		if (post->handCount[i] >= 5)	{
 			post5Count++;
+		}
 	}
 		
 	if (choice1 > 0)	{
@@ -74,7 +75,7 @@ int checkMinionCard(struct gameState *post, int handPos, int choice1, int choice
 		printf("Players with 5 cards discarded and now have 4 = %d < %d", pre5Count, post5Count);
 		assertEq(post4Count, pre5Count + pre4Count, &failCounter, tmpResult);
 		printf("No players with more than 5 cards = 0 == %d", post5Count);
-		assertEq(0, post5Count, failCounter, tmpResult);
+		assertEq(0, post5Count, &failCounter, tmpResult);
 		
 	}
 	
