@@ -77,15 +77,15 @@ int main () {
             ((char*)&G)[i] = floor(Random() * 256);
         }
 		//pick a random choice (either 0 or 1)
-		choice1 = (int)floor(Random()) % 2;
+		choice1 = (int)Random() % 2;
 		//pick a random number of player(between 2 - 4)
-		numPlayers = (int)floor(Random()) % 3 + 2;
+		numPlayers = (int)Random() % 3 + 2;
 		//pick a random player
-        p = (int)floor(Random()) % numPlayers;
+        p = (int)Random() % numPlayers;
 		//pick random deck, discard, and handcount values
-        G.deckCount[p] = (int)floor(Random()) % MAX_DECK;
-        G.discardCount[p] = (int)floor(Random()) % MAX_DECK;
-        G.handCount[p] = (int)floor(Random()) % MAX_HAND;
+        G.deckCount[p] = (int)Random() % MAX_DECK;
+        G.discardCount[p] = (int)Random() % MAX_DECK;
+        G.handCount[p] = (int)Random() % MAX_HAND;
 		//get random coin amoint
 		G.coins = 100;
 		G.whoseTurn = p;
