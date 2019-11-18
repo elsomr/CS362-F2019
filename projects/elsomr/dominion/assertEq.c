@@ -14,11 +14,11 @@
 void assertEq(int expected, int outcome, int* failCounter, char* result)	{
 	
 	if (expected == outcome) 	{
-		result = "PASS";
+		strcpy(result,"PASS");
 	}
 	else	{
 		(*failCounter)++;
-		result = "FAIL";
+		strcpy(result,"FAIL");
 	}
 	
 	printf("%s\n", result);
