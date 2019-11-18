@@ -86,7 +86,6 @@ int initializeGame(int numPlayers, int kingdomCards[10], int randomSeed,
 /* Responsible for initializing all supplies, and shuffling deck and
    drawing starting hands for all players.  Check that 10 cards selected
    are in fact (different) kingdom cards, and that numPlayers is valid.
-
 Cards not in game should initialize supply position to -1 */
 
 int shuffle(int player, struct gameState *state);
@@ -129,13 +128,13 @@ int getWinners(int players[MAX_PLAYERS], struct gameState *state);
    1, others to 0 */
 
 //performs the card effect for the baron card
-void baronEffect(int choice1, struct gameState *state);
+int baronEffect(int choice1, struct gameState *state);
 
 //performs the effect for the minion card
 void minionEffect(struct gameState *state, int handPos, int choice1, int choice2);
 
 //performs the effect for the ambassador card
-void ambassadorEffect(int choice1, int choice2, struct gameState* state, int handPos);
+int ambassadorEffect(int choice1, int choice2, struct gameState* state, int handPos);
 
 //performs the effect for the mine card
 int mineEffect(struct gameState* state, int choice1, int choice2, int handPos );
