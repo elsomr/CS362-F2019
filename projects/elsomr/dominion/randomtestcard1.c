@@ -96,7 +96,7 @@ int main () {
 		G.whoseTurn = p;
 		G.supplyCount[estate] = rand() % 12;
 		//randomly gain an estate card 50% of the time
-		if (1)	{
+		if (1 && G.handCount[p] != 0)	{
 			G.hand[p][rand() % G.handCount[p]] = estate;
 		}
 
