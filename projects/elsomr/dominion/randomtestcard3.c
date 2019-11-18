@@ -175,10 +175,10 @@ int main () {
     }
 
 	if (failCounter == 0)	{
-		printf ("ALL TESTS OK\n");
+		printf ("\n\n==================ALL TESTS OK====================\n\n");
 	}
 	else	{
-		printf( "%d TEST(s) FAILED\n", failCounter);
+		printf( "\n\n=================%d TEST(s) FAILED==================\n\n", failCounter);
 	}
 
     exit(0);

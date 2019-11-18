@@ -26,23 +26,21 @@ testTributeCard: randomtestcard3.c dominion.o rngs.o assertEq.o
 interface.o: interface.h interface.c
 	gcc -c interface.c -g  $(CFLAGS)
 
-runtests: testBaronCard testMinionCard testTributeCard
+randomtestresults: testBaronCard testMinionCard testTributeCard
 	./testBaronCard &> unittestresult.out
-	gcov -b -f dominion.c >> unittestresult.out
-	#cat dominion.c.gcov >> unittestresult.out
+	gcov -b -f dominion.c >> randomtestresults.out
 	
 	./testMinionCard &> unittestresult.out
-	gcov -b -f dominion.c >> unittestresult.out
-	#cat dominion.c.gcov >> unittestresult.out
+	gcov -b -f dominion.c >> randomtestresults.out
 	
 	./testTributeCard &> unittestresult.out
-	gcov -b -f dominion.c >> unittestresult.out
+	gcov -b -f dominion.c >> randomtestresults.out
 
 
 player: player.c interface.o
 	gcc -o player player.c -g  dominion.o rngs.o interface.o $(CFLAGS)
 
-all: runtests
+all: randomtestresults
 
 clean:
 	rm -f *.o playdom.exe testBaronCard testBaronCard.exe testMinionCard testMinionCard.exe playdom player\
