@@ -46,4 +46,4 @@ all: runtests
 
 clean:
 	rm -f *.o playdom.exe testBaronCard testBaronCard.exe testMinionCard testMinionCard.exe playdom player\
-	player.exe *.gcov *.gcda *.gcno *.so *.out testDrawCard testDrawCard.exe
+	player.exe *.gcov *.gcda *.gcno *.so *.out testDrawCard testDrawCard.exe testTributeCard testTributeCard.exe
