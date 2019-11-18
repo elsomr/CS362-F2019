@@ -20,13 +20,13 @@ int checkBaronCard(int choice1, int Numplayers, int p, struct gameState *post) {
     memcpy (&pre, post, sizeof(struct gameState));
 
     int r;
-     printf ("Baron Effect PRE: p %d Coins %d HC %d DiC %d\n",
-    	  p, pre.coins, pre.handCount[p], pre.discardCount[p]);
+     printf ("Baron Effect PRE: choice %d p %d Coins %d HC %d DiC %d\n",
+    	  choice1, p, pre.coins, pre.handCount[p], pre.discardCount[p]);
 
     r = baronEffect (choice1, post);
 
-    printf ("Baron Effect POST: p %d Coins %d HC %d DiC %d\n\n\n",
-    	  p, post->coins, post->handCount[p], post->discardCount[p]);
+    printf ("Baron Effect POST: chioce %d p %d Coins %d HC %d DiC %d\n\n\n",
+    	  choice1, p, post->coins, post->handCount[p], post->discardCount[p]);
 
 	if (choice1 > 0)	{
 		printf("Coin check = ");
