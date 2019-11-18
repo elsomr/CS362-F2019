@@ -40,7 +40,7 @@ int checkTributeCard(struct gameState *post, int numPlayers, int p, int nextPlay
 
 
 	//count pre treasure, action, and victory cards
-	for (j=0; j < pre.handCount[nextPlayer]; j++)	{
+	for (j=0; j < pre.deckCount[nextPlayer]; j++)	{
 		if (pre.deck[nextPlayer][j] == copper || pre.deck[nextPlayer][j] == silver ||  pre.deck[nextPlayer][j] == gold)	{
 			preTreasure++;
 		}
@@ -56,7 +56,7 @@ int checkTributeCard(struct gameState *post, int numPlayers, int p, int nextPlay
 	printf("\n\nPre: Action %d, Treasure %d Victory %d\n", preAction, preTreasure, preVictory);
 	
 	//count post treasure, action, and victory cards
-	for (j=0; j < post->handCount[nextPlayer]; j++)	{
+	for (j=0; j < post->deckCount[nextPlayer]; j++)	{
 		if (post->deck[nextPlayer][j] == copper || post->deck[nextPlayer][j] == silver ||  post->deck[nextPlayer][j] == gold)	{
 			postTreasure++;
 		}
