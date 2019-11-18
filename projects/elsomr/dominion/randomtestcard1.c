@@ -69,36 +69,6 @@ int main () {
 
     struct gameState G;
 	
-	//set kingdom cards to draw from, taken from initialize game function in dominion.c
-    for (i = adventurer; i <= treasure_map; i++)       	//loop all cards
-    {
-        for (j = 0; j < 10; j++)           		//loop chosen cards
-        {
-            if (k[j] == i)
-            {
-                //check if card is a 'Victory' Kingdom card
-                if (k[j] == great_hall || k[j] == gardens)
-                {
-                    if (numPlayers == 2) {
-                        G.supplyCount[i] = 8;
-                    }
-                    else {
-                        G.supplyCount[i] = 12;
-                    }
-                }
-                else
-                {
-                    G.supplyCount[i] = 10;
-                }
-                break;
-            }
-            else    //card is not in the set choosen for the game
-            {
-                G.supplyCount[i] = -1;
-            }
-        }
-
-    }
 
     printf ("Testing Baron Card.\n");
 
@@ -127,7 +97,7 @@ int main () {
 		G.supplyCount[estate] = rand() % 12;
 		//randomly gain an estate card 50% of the time
 		if (1)	{
-			gainCard(estate, &G, 0, p);
+			G.hand[p][rand() % G.handCount[p]] = estate;
 		}
 
 		//call check function
