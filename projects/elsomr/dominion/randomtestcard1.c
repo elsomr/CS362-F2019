@@ -31,16 +31,12 @@ int checkBaronCard(int choice1, int Numplayers, int p, struct gameState *post) {
 	if (choice1 > 0)	{
 		printf("Coin check = ");
 		assertEq(pre.coins, post->coins, &failCounter, tmpResult);
-		printf("%s\n", tmpResult);
 		printf("Hand Increases Check = ");
 		assertEq( pre.handCount[p]+1,  post->handCount[p], &failCounter, tmpResult);
-		printf("%s\n", tmpResult);
 		printf("Card is put in discard pile check = "); 
 		assertEq(estate, post->discard[p][post->discardCount[p]], &failCounter, tmpResult);
-		printf("%s\n", tmpResult);
 		printf("Estate supply decreases = ");
 		assertEq(pre.supplyCount[estate], post->supplyCount[estate], &failCounter, tmpResult);
-		printf("%s\n", tmpResult);
 		printf("Note: only one of the last two tests should pass\n");
 		
 		
@@ -48,13 +44,10 @@ int checkBaronCard(int choice1, int Numplayers, int p, struct gameState *post) {
 	else if (choice1 == 0)	{
 		printf("Coin is static = ");
 		assertEq(pre.coins, post->coins, &failCounter, tmpResult);
-		printf("%s\n", tmpResult);
 		printf("Hand is static = ");
 		assertEq(pre.handCount[p], post->handCount[p], &failCounter, tmpResult);
-		printf("%s\n", tmpResult);
 		printf("Estate supply is static = ");
 		assertEq(pre.supplyCount[estate], post->supplyCount[estate], &failCounter, tmpResult);
-		printf("%s\n", tmpResult);
 		
 	}
 	
