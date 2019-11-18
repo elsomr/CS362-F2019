@@ -36,9 +36,9 @@ int checkTributeCard(struct gameState *post, int numPlayers, int p, int nextPlay
 			tributeCards[0] = pre.deck[nextPlayer][pre.deckCount[nextPlayer]-1];
 		}
 		else if (pre.discardCount[nextPlayer] > 0)	{
-			tributeCards[c] = pre.discard[nextPlayer][pre.discardCount[nextPlayer]-1];
+			tributeCards[0] = pre.discard[nextPlayer][pre.discardCount[nextPlayer]-1];
 		}
-	
+	}
 	else	{
 		tributeCards[0] = pre.deck[nextPlayer][pre.deckCount[nextPlayer]-1];
 		tributeCards[1] = pre.deck[nextPlayer][pre.deckCount[nextPlayer]-2];
