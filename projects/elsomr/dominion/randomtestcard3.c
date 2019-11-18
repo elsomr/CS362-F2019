@@ -17,7 +17,7 @@
 int checkTributeCard(struct gameState *post, int numPlayers, int p, int nextPlayer) {
     struct gameState pre;
 	int failCounter = 0;
-	int i, j;
+	int j;
 	char* tmpResult;
 	int preTreasure = 0;
 	int preVictory = 0;
@@ -99,7 +99,7 @@ int checkTributeCard(struct gameState *post, int numPlayers, int p, int nextPlay
 		printf("Actions increase = ");
 		assertEq( pre.numActions + (preAction - postAction) * 2,  post->numActions, &failCounter, tmpResult);
 		printf("Current Player gains cards = ");
-		assertEq(pre.handCount[p] + ((preVictory - postVictory) * 2), post.handCount[p], &failCounter, tmpResult);
+		assertEq(pre.handCount[p] + ((preVictory - postVictory) * 2), post->handCount[p], &failCounter, tmpResult);
 		printf("Next player hand decreased by number of victory cards revealed= "); 
 		assertEq(pre.handCount[nextPlayer] - (preAction-postAction), post->handCount[nextPlayer], &failCounter, tmpResult);
 	}
@@ -109,7 +109,7 @@ int checkTributeCard(struct gameState *post, int numPlayers, int p, int nextPlay
 int main () {
 	srand(time(0));
 
-    int i, j, it, n, r, p, deckCount, discardCount, handCount, choice1, choice2, numPlayers, handPos, nextPlayer, index;
+    int i, j, n, p, numPlayers, nextPlayer, index;
 	int failCounter = 0;
 
     int k[10] = {adventurer, council_room, feast, gardens, mine,
@@ -157,7 +157,7 @@ int main () {
 		//store random cards in nextPlayers hand
 		for (j=0; j < G.handCount[nextPlayer] ; j++)	{
 			index = rand() % 10;
-			G.hand[nextPlayer][j] == k[10];
+			G.hand[nextPlayer][j] = k[index];
 		}
 
 		//call check function
