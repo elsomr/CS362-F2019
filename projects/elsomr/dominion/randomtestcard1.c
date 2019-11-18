@@ -48,7 +48,8 @@ int checkBaronCard(int choice1, int Numplayers, int p, struct gameState *post) {
 
 int main () {
 
-    int i, n, r, p, deckCount, discardCount, handCount, choice1. failCounter = 0;
+    int i, n, r, p, deckCount, discardCount, handCount, choice1, numPlayers;
+	int failCounter = 0;
 
     int k[10] = {adventurer, council_room, feast, gardens, mine,
                  remodel, smithy, village, baron, great_hall
@@ -68,15 +69,15 @@ int main () {
             ((char*)&G)[i] = floor(Random() * 256);
         }
 		//pick a random choice (either 0 or 1)
-		choice1 = floor(Random() % 2);
+		choice1 = (int)floor(Random()) % 2;
 		//pick a random number of player(between 2 - 4)
-		numPlayers = floor(Random() % 3 + 2);
+		numPlayers = (int)floor(Random()) % 3 + 2);
 		//pick a random player
         p = floor(Random() % numPlayers);
 		//pick random deck, discard, and handcount values
-        G.deckCount[p] = floor(Random() % MAX_DECK);
-        G.discardCount[p] = floor(Random() % MAX_DECK);
-        G.handCount[p] = floor(Random() % MAX_HAND);
+        G.deckCount[p] = (int)floor(Random()) % MAX_DECK;
+        G.discardCount[p] = (int)floor(Random()) % MAX_DECK;
+        G.handCount[p] = (int)floor(Random()) % MAX_HAND;
 		//call check function
         failCounter += checkBaronCard(choice1, numPlayers, player, &G);
     }
