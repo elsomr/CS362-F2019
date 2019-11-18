@@ -126,6 +126,7 @@ int main () {
 		G.coins = rand() % 1000;
 		//store whose turn it is
 		G.whoseTurn = p;
+		G.numPlayers = numPlayers;
 		//get random hand position
 		if (G.handCount[p] > 0)	{
 			handPos = rand() % G.handCount[p];
