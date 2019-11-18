@@ -39,4 +39,5 @@ player: player.c interface.o
 all: runtests
 
 clean:
-	rm -f *.o playdom.exe playdom player player.exe  *.gcov *.gcda *.gcno *.so *.out testDrawCard testDrawCard.exe
+	rm -f *.o playdom.exe testBaronCard testBaronCard.exe testMinionCard testMinionCard.exe playdom player\
+	player.exe *.gcov *.gcda *.gcno *.so *.out testDrawCard testDrawCard.exe
