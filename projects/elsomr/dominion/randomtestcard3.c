@@ -41,11 +41,11 @@ int checkTributeCard(struct gameState *post, int numPlayers, int p, int nextPlay
 
 	//count pre treasure, action, and victory cards
 	for (j=0; j < pre.handCount[nextPlayer]; j++)	{
-		if (pre.hand[nextPlayer][j] == copper || pre.hand[nextPlayer][j] == silver ||  pre.hand[nextPlayer][j] == gold)	{
+		if (pre.deck[nextPlayer][j] == copper || pre.deck[nextPlayer][j] == silver ||  pre.deck[nextPlayer][j] == gold)	{
 			preTreasure++;
 		}
-		else if ( pre.hand[nextPlayer][j] == estate ||  pre.hand[nextPlayer][j] == duchy || pre.hand[nextPlayer][j] == province\
-		||  pre.hand[nextPlayer][j] == gardens ||  pre.hand[nextPlayer][j] == great_hall)	{
+		else if ( pre.deck[nextPlayer][j] == estate ||  pre.deck[nextPlayer][j] == duchy || pre.deck[nextPlayer][j] == province\
+		||  pre.deck[nextPlayer][j] == gardens ||  pre.deck[nextPlayer][j] == great_hall)	{
 			preVictory++;
 		}	
 		else {
@@ -57,11 +57,11 @@ int checkTributeCard(struct gameState *post, int numPlayers, int p, int nextPlay
 	
 	//count post treasure, action, and victory cards
 	for (j=0; j < post->handCount[nextPlayer]; j++)	{
-		if (post->hand[nextPlayer][j] == copper || post->hand[nextPlayer][j] == silver ||  post->hand[nextPlayer][j] == gold)	{
+		if (post->deck[nextPlayer][j] == copper || post->deck[nextPlayer][j] == silver ||  post->deck[nextPlayer][j] == gold)	{
 			postTreasure++;
 		}
-		else if ( post->hand[nextPlayer][j] == estate ||  post->hand[nextPlayer][j] == duchy || post->hand[nextPlayer][j] == province\
-		||  post->hand[nextPlayer][j] == gardens ||  post->hand[nextPlayer][j] == great_hall)	{
+		else if ( post->deck[nextPlayer][j] == estate ||  post->deck[nextPlayer][j] == duchy || post->deck[nextPlayer][j] == province\
+		||  post->deck[nextPlayer][j] == gardens ||  post->deck[nextPlayer][j] == great_hall)	{
 			postVictory++;
 		}	
 		else {
