@@ -14,7 +14,7 @@
 #include <time.h>
 
 
-int checkMinionCard(struct gameState *post, int handPos, int choice1, int, choice2, int numPlayers, int p) {
+int checkMinionCard(struct gameState *post, int handPos, int choice1, int choice2, int numPlayers, int p) {
     struct gameState pre;
 	int failCounter = 0;
 	int i;
