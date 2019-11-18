@@ -165,7 +165,6 @@ int main () {
 		G.numPlayers = numPlayers;
 		//store random cards in nextPlayers hand
 		for (j=0; j < G.deckCount[nextPlayer] ; j++)	{
-			index = rand() % 10;
 			G.deck[nextPlayer][j] = rand() % 20;
 		}
 

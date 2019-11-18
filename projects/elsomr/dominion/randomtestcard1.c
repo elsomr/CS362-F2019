@@ -33,7 +33,7 @@ int checkBaronCard(int choice1, int Numplayers, int p, struct gameState *post) {
 
 	if (choice1 > 0)	{
 		printf("\nCoin check = ");
-		assertEq(pre.coins, post->coins, &failCounter, tmpResult);
+		assertEq(pre.coins+4, post->coins, &failCounter, tmpResult);
 		printf("Hand Increases Check = ");
 		assertEq( pre.handCount[p]+1,  post->handCount[p], &failCounter, tmpResult);
 		printf("Card is put in discard pile check = "); 

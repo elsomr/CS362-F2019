@@ -70,8 +70,8 @@ int checkMinionCard(struct gameState *post, int handPos, int choice1, int choice
 		assertEq(pre.coins, post->coins, &failCounter, tmpResult);
 		printf("Actions increase = ");
 		assertEq( pre.numActions + 1,  post->numActions, &failCounter, tmpResult);
-		printf("Card count is static = "); 
-		assertEq(pre.handCount[p], post->handCount[p], &failCounter, tmpResult);
+		printf("Card count is 4 = "); 
+		assertEq(4, post->handCount[p], &failCounter, tmpResult);
 		printf("Players with 5 cards discarded and now have 4 = %d < %d", pre5Count, post5Count);
 		assertEq(post4Count, pre5Count + pre4Count, &failCounter, tmpResult);
 		printf("No players with more than 5 cards = 0 == %d", post5Count);
