@@ -22,14 +22,14 @@ int checkMinionCard(struct gameState *post, int handPos, int choice1, int choice
     memcpy (&pre, post, sizeof(struct gameState));
 
     int r;
-	int pre5count=0;
-	int post4count=0;
-	int pre4count=0;
-	int post5count=0;
+	int pre5Count=0;
+	int post4Count=0;
+	int pre4Count=0;
+	int post5Count=0;
     printf ("Minion Effect PRE: choice1 %d choice2 %d p %d Coins %d Actions %d HC %d",
     	  choice1, p, pre.coins, pre.numActions, pre.handCount[p]);
 
-    r = minionEffect (post, handPos, choice1, choice2);
+    minionEffect (post, handPos, choice1, choice2);
 
     printf ("Minion Effect POST: chioce %d p %d Coins %d Actions %d HC %d\n\n\n",
     	  choice1, p, post->coins, post->numActions, post->handCount[p]);
@@ -47,7 +47,7 @@ int checkMinionCard(struct gameState *post, int handPos, int choice1, int choice
 			post4Count++;
 		}
 		if (post->handCount[i] >= 5)	{
-			post5count++;
+			post5Count++;
 	}
 		
 	if (choice1 > 0)	{
@@ -59,9 +59,9 @@ int checkMinionCard(struct gameState *post, int handPos, int choice1, int choice
 		printf("Card count is static = "); 
 		assertEq(pre.handCount[p], post->handCount[p], &failCounter, tmpResult);
 		printf("Players with 5 cards did not discard = %d < %d", pre5Count, post5Count);
-		assertEq(pre5count, post5count, &failCounter, tmpResult);
+		assertEq(pre5Count, post5Count, &failCounter, tmpResult);
 		printf("Players with 4 cards stayed the same = ");
-		assertEq(pre4count, post4count, &failCounter, tmpResult);
+		assertEq(pre4Count, post4Count, &failCounter, tmpResult);
 		
 	}
 	else if (choice2 > 0)	{
@@ -72,9 +72,9 @@ int checkMinionCard(struct gameState *post, int handPos, int choice1, int choice
 		printf("Card count is static = "); 
 		assertEq(pre.handCount[p], post->handCount[p], &failCounter, tmpResult);
 		printf("Players with 5 cards discarded and now have 4 = %d < %d", pre5Count, post5Count);
-		assertEq(post4Count, pre5count + pre4count, &failCounter, tmpResult);
+		assertEq(post4Count, pre5Count + pre4Count, &failCounter, tmpResult);
 		printf("No players with more than 5 cards = 0 == %d", post5Count);
-		assertEq(0, post5count, failCounter, tmpResult);
+		assertEq(0, post5Count, failCounter, tmpResult);
 		
 	}
 	
