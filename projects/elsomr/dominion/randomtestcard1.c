@@ -91,7 +91,12 @@ int main () {
 		//get random coin amoint
 		G.coins = 100;
 		G.whoseTurn = p;
-		printf("\n\n\nCoins = %d\n\n\n", G.coins);
+		G.supplyCount[estate] = rand() % 12;
+		//get random hand
+		for (it = 0; it < MAX_HAND; it++) {
+			drawCard(state->whoseTurn, state);
+		}
+
 		//call check function
         failCounter += checkBaronCard(choice1, numPlayers, p, &G);
     }
