@@ -25,7 +25,7 @@ int checkBaronCard(int choice1, int Numplayers, int p, struct gameState *post) {
     r = baronEffect (choice1, post);
 
     printf ("Baron Effect POST: p %d Coins %d HC %d DiC %d\n\n\n",
-    	  p, post.handCount, post, post);
+    	  p, post->handCount, post, post);
 
 	if (choice1 > 0)	{
 		printf("Coin check = %s\n", assertEq(pre.coins, post.coins, &failCounter));
