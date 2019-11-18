@@ -9,7 +9,7 @@
 #include "dominion_helpers.h"
 #include <string.h>
 #include <stdio.h>
-#include "assert.c"
+#include "assertEq.h"
 #include "rngs.h"
 
 
