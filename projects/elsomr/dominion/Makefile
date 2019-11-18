@@ -16,12 +16,19 @@ assertEq.o: assertEq.h assertEq.c
 
 testBaronCard: randomtestcard1.c dominion.o rngs.o assertEq.o
 	gcc  -o testBaronCard -g  randomtestcard1.c dominion.o rngs.o assertEq.o $(CFLAGS)
+	
+testMinionCard: randomtestcard2.c dominion.o rngs.o assertEq.o
+	gcc  -o testMinionCard -g  randomtestcard2.c dominion.o rngs.o assertEq.o $(CFLAGS)
 
 interface.o: interface.h interface.c
 	gcc -c interface.c -g  $(CFLAGS)
 
-runtests: testBaronCard
+runtests: testBaronCard testMinionCard
 	./testBaronCard &> unittestresult.out
+	gcov dominion.c >> unittestresult.out
+	cat dominion.c.gcov >> unittestresult.out
+	
+	./testMinionCard &> unittestresult.out
 	gcov dominion.c >> unittestresult.out
 	cat dominion.c.gcov >> unittestresult.out
 
