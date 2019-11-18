@@ -85,7 +85,7 @@ int checkMinionCard(struct gameState *post, int handPos, int choice1, int choice
 int main () {
 	srand(time(0));
 
-    int i, j, it, n, r, p, deckCount, discardCount, handCount, choice1, numPlayers, handPos;
+    int i, j, it, n, r, p, deckCount, discardCount, handCount, choice1, choice2, numPlayers, handPos;
 	int failCounter = 0;
 
     int k[10] = {adventurer, council_room, feast, gardens, mine,
