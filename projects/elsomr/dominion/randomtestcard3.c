@@ -17,7 +17,7 @@
 int checkTributeCard(struct gameState *post, int numPlayers, int p, int nextPlayer) {
     struct gameState pre;
 	int failCounter = 0;
-	int j;
+	int i;
 	char* tmpResult;
 	int treasureCount = 0;
 	int victoryCount = 0;
@@ -34,6 +34,7 @@ int checkTributeCard(struct gameState *post, int numPlayers, int p, int nextPlay
 	if (pre.discardCount[nextPlayer] + pre.deckCount[nextPlayer] <= 1)	{
 		if (pre.deckCount[nextPlayer] > 0)	{
 			tributeCards[0] = pre.deck[nextPlayer][pre.deckCount[nextPlayer]-1];
+		}
 		else if (pre.discardCount[nextPlayer] > 0)	{
 			tributeCards[c] = pre.discard[nextPlayer][pre.discardCount[nextPlayer]-1];
 		}
@@ -54,7 +55,7 @@ int checkTributeCard(struct gameState *post, int numPlayers, int p, int nextPlay
 	
 	
 	//count post treasure, action, and victory cards
-	for (j=0; j < 2; j++)	{
+	for (i=0; i < 2; i++)	{
 		//4-6
 		if (tributeCards[i] == copper || tributeCards[i] == silver ||  tributeCards[i] == gold)	{
 			treasureCount++;
