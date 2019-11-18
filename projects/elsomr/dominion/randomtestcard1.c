@@ -16,6 +16,7 @@
 int checkBaronCard(int choice1, int Numplayers, int p, struct gameState *post) {
     struct gameState pre;
 	int failCounter = 0;
+	char* tmpResult;
     memcpy (&pre, post, sizeof(struct gameState));
 
     int r;
@@ -28,18 +29,25 @@ int checkBaronCard(int choice1, int Numplayers, int p, struct gameState *post) {
     	  p, post->handCount, post->handCount[p], post->discardCount[p]);
 
 	if (choice1 > 0)	{
-		printf("Coin check = %s\n", assertEq(pre.coins, post->coins, &failCounter));
-		printf("Hand Increases Check = %s\n", assertEq( pre.handCount[p]+1,  post->handCount[p], &failCounter));
-		printf("Card is put in discard pile check = %s\n", assertEq(estate, post->discard[p][post.discardCount[p]], &failCount));
-		printf("Estate supply decreases = %s\n", assertEq(pre.supplyCount[estate], post->supplyCount[estate], &failCounter));
+		printf("Coin check = ");
+		printf("%s\n", assertEq(pre.coins, post->coins, &failCounter));
+		printf("Hand Increases Check = ");
+		printf("%s\n", assertEq( pre.handCount[p]+1,  post->handCount[p], &failCounter));
+		printf("Card is put in discard pile check = "); 
+		printf("%s\n", assertEq(estate, post->discard[p][post.discardCount[p]], &failCount));
+		printf("Estate supply decreases = ");
+		printf("%s\n", assertEq(pre.supplyCount[estate], post->supplyCount[estate], &failCounter));
 		printf("Note: only one of the last two tests should pass\n");
 		
 		
 	}
 	else if (choice1 == 0)	{
-		printf("Coin is static = %s\n", assertEq(pre.coins, post->coins, &failCounter));
-		printf("Hand is static = %s\n", assertEq(pre.handCount[p], post->handCount[p], &failCounter));
-		printf("Estate supply is static = %s\n", assertEq(pre.supplyCount[estate], post->supplyCount[estate], &failCounter));
+		printf("Coin is static = ");
+		printf("%s\n", assertEq(pre.coins, post->coins, &failCounter));
+		printf("Hand is static = ");
+		printf("%s\n", assertEq(pre.handCount[p], post->handCount[p], &failCounter));
+		printf("Estate supply is static = ");
+		printf("%s\n", assertEq(pre.supplyCount[estate], post->supplyCount[estate], &failCounter));
 		
 	}
 	
