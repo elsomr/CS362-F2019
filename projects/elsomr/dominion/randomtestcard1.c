@@ -22,17 +22,17 @@ int checkBaronCard(int choice1, int Numplayers, int p, struct gameState *post) {
     memcpy (&pre, post, sizeof(struct gameState));
 
     int r;
-    printf ("Baron Effect PRE: choice %d p %d Coins %d HC %d DiC %d\n",
-    	  choice1, p, pre.coins, pre.handCount[p], pre.discardCount[p]);
+    // printf ("\nBaron Effect PRE: choice %d p %d Coins %d HC %d DiC %d\n",
+    	  // choice1, p, pre.coins, pre.handCount[p], pre.discardCount[p]);
 
     r = baronEffect (choice1, post);
 
-    printf ("Baron Effect POST: chioce %d p %d Coins %d HC %d DiC %d\n\n\n",
-    	  choice1, p, post->coins, post->handCount[p], post->discardCount[p]);
+    // printf ("Baron Effect POST: chioce %d p %d Coins %d HC %d DiC %d\n",
+    	  // choice1, p, post->coins, post->handCount[p], post->discardCount[p]);
 
 
 	if (choice1 > 0)	{
-		printf("Coin check = ");
+		printf("\nCoin check = ");
 		assertEq(pre.coins, post->coins, &failCounter, tmpResult);
 		printf("Hand Increases Check = ");
 		assertEq( pre.handCount[p]+1,  post->handCount[p], &failCounter, tmpResult);
@@ -101,6 +101,7 @@ int main () {
 		}
 
 		//call check function
+		printf("\n++++++++++++++ TEST %d +++++++++++++\n", n);
         failCounter += checkBaronCard(choice1, numPlayers, p, &G);
     }
 
