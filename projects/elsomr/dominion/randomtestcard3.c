@@ -19,12 +19,10 @@ int checkTributeCard(struct gameState *post, int numPlayers, int p, int nextPlay
 	int failCounter = 0;
 	int j;
 	char* tmpResult;
-	int preTreasure = 0;
-	int preVictory = 0;
-	int preAction = 0;
-	int postTreasure = 0;
-	int postVictory = 0;
-	int postAction = 0;
+	int treasureCount = 0;
+	int victoryCount = 0;
+	int actionCount = 0;
+	int tributeCards[2];
 	
 	
 	
@@ -32,19 +30,17 @@ int checkTributeCard(struct gameState *post, int numPlayers, int p, int nextPlay
 
     // printf ("Tribute Effect PRE: choice1 %d choice2 %d p %d Coins %d Actions %d HC %d",
     	  // choice1, p, pre.coins, pre.numActions, pre.handCount[p]);
-		  
-	//count post treasure, action, and victory cards
-	for (j=0; j < post->deckCount[nextPlayer]; j++)	{
-		if (post->deck[nextPlayer][j] == copper || post->deck[nextPlayer][j] == silver ||  post->deck[nextPlayer][j] == gold)	{
-			preTreasure++;
+	//get tribute cards
+	if (pre.discardCount[nextPlayer] + pre.deckCount[nextPlayer] <= 1)	{
+		if (pre.deckCount[nextPlayer] > 0)	{
+			tributeCards[0] = pre.deck[nextPlayer][pre.deckCount[nextPlayer]-1];
+		else if (pre.discardCount[nextPlayer] > 0)	{
+			tributeCards[c] = pre.discard[nextPlayer][pre.discardCount[nextPlayer]-1];
 		}
-		else if ( post->deck[nextPlayer][j] == estate ||  post->deck[nextPlayer][j] == duchy || post->deck[nextPlayer][j] == province\
-		||  post->deck[nextPlayer][j] == gardens ||  post->deck[nextPlayer][j] == great_hall)	{
-			preVictory++;
-		}	
-		else {
-			preAction++;
-		}
+	
+	else	{
+		tributeCards[0] = pre.deck[nextPlayer][pre.deckCount[nextPlayer]-1];
+		tributeCards[1] = pre.deck[nextPlayer][pre.deckCount[nextPlayer]-2];
 	}
 	
 	printf("Tribute Cards %d %d\n\n", post->deck[nextPlayer][post->deckCount[nextPlayer]-1], post->deck[nextPlayer][post->deckCount[nextPlayer]-2]);
@@ -54,79 +50,60 @@ int checkTributeCard(struct gameState *post, int numPlayers, int p, int nextPlay
     // printf ("Tribute Effect POST: chioce %d p %d Coins %d Actions %d HC %d\n\n\n",
     	  // choice1, p, post->coins, post->numActions, post->handCount[p]);
 
-
-	//count pre treasure, action, and victory cards
-	// for (j=0; j < pre.deckCount[nextPlayer]; j++)	{
-		// if (pre.deck[nextPlayer][j] == copper || pre.deck[nextPlayer][j] == silver ||  pre.deck[nextPlayer][j] == gold)	{
-			// preTreasure++;
-		// }
-		// else if ( pre.deck[nextPlayer][j] == estate ||  pre.deck[nextPlayer][j] == duchy || pre.deck[nextPlayer][j] == province\
-		// ||  pre.deck[nextPlayer][j] == gardens ||  pre.deck[nextPlayer][j] == great_hall)	{
-			// preVictory++;
-		// }	
-		// else {
-			// preAction++;
-		// }
-	// }
 	
-	printf("\n\nPre: Action %d, Treasure %d Victory %d\n", preAction, preTreasure, preVictory);
-	printf("NExt player deck count = ");
-	assertEq(pre.deckCount[nextPlayer], post->deckCount[nextPlayer], &failCounter, tmpResult);
 	
 	//count post treasure, action, and victory cards
-	for (j=0; j < post->deckCount[nextPlayer]; j++)	{
+	for (j=0; j < 2; j++)	{
 		//4-6
-		if (post->deck[nextPlayer][j] == copper || post->deck[nextPlayer][j] == silver ||  post->deck[nextPlayer][j] == gold)	{
-			postTreasure++;
+		if (tributeCards[i] == copper || tributeCards[i] == silver ||  tributeCards[i] == gold)	{
+			treasureCount++;
 		}
 		
 		//1-3, 10, 16
-		else if ( post->deck[nextPlayer][j] == estate ||  post->deck[nextPlayer][j] == duchy || post->deck[nextPlayer][j] == province\
-		||  post->deck[nextPlayer][j] == gardens ||  post->deck[nextPlayer][j] == great_hall)	{
-			postVictory++;
+		else if ( tributeCards[i] == estate ||  tributeCards[i] == duchy || tributeCards[i] == province\
+		||  tributeCards[i] == gardens ||  tributeCards[i] == great_hall)	{
+			victoryCount++;
 		}	
 		else {
-			postAction++;
+			actionCount++;
 		}
 	}
 	
-	printf("\n\nPost: Action %d, Treasure %d Victory %d\n", postAction, postTreasure, postVictory);
-	
-	
+
 	//if a treasure was taken out of next players hand
-	if (preTreasure > postTreasure)	{
-		printf("\n%d Treasure Card(s) were Revealed", preTreasure-postTreasure);
+	if (treasureCount > 0)	{
+		printf("\n%d Treasure Card(s) were Revealed", treasureCount);
 		printf("\nCoins increased = ");
-		assertEq(pre.coins+ ((preTreasure-postTreasure)*2), post->coins, &failCounter, tmpResult);
+		assertEq(pre.coins+ (treasureCount*2), post->coins, &failCounter, tmpResult);
 		printf("Actions increase = ");
-		assertEq( pre.numActions + ((preAction - postAction) * 2),  post->numActions, &failCounter, tmpResult);
+		assertEq( pre.numActions + (treasureCount * 2),  post->numActions, &failCounter, tmpResult);
 		printf("Next player hand decreased by number of treasure cards revealed= "); 
-		assertEq(pre.handCount[nextPlayer] - (preTreasure-postTreasure), post->handCount[nextPlayer], &failCounter, tmpResult);
+		assertEq(pre.handCount[nextPlayer] - treasureCount, post->handCount[nextPlayer], &failCounter, tmpResult);
 		
 		
 	}
 	//if an action card was revealed
-	else if (preAction > postAction)	{
-		printf("\n%d Action Card(s) were Revealed", preAction-postAction);
+	if (actionCount > 0)	{
+		printf("\n%d Action Card(s) were Revealed", actionCount);
 		printf("\nCoins static = ");
 		assertEq(pre.coins, post->coins, &failCounter, tmpResult);
 		printf("Actions increase = ");
-		assertEq( pre.numActions + ((preAction - postAction) * 2),  post->numActions, &failCounter, tmpResult);
+		assertEq( pre.numActions + ((actionCount) * 2),  post->numActions, &failCounter, tmpResult);
 		printf("Next player hand decreased by number of action cards revealed= "); 
-		assertEq(pre.handCount[nextPlayer] - (preAction-postAction), post->handCount[nextPlayer], &failCounter, tmpResult);
+		assertEq(pre.handCount[nextPlayer] - (actionCount), post->handCount[nextPlayer], &failCounter, tmpResult);
 		
 	}
 	//if a victory card was revealed
-	else if (preVictory > postVictory)	{
-		printf("\n%d Victory Card(s) were Revealed", preVictory-postVictory);
+	if (victoryCount > 0)	{
+		printf("\n%d Victory Card(s) were Revealed", victoryCount);
 		printf("\nCoins static = ");
 		assertEq(pre.coins, post->coins, &failCounter, tmpResult);
 		printf("Actions increase = ");
-		assertEq( pre.numActions + (preAction - postAction) * 2,  post->numActions, &failCounter, tmpResult);
+		assertEq( pre.numActions + (victoryCount) * 2,  post->numActions, &failCounter, tmpResult);
 		printf("Current Player gains cards = ");
-		assertEq(pre.handCount[p] + ((preVictory - postVictory) * 2), post->handCount[p], &failCounter, tmpResult);
+		assertEq(pre.handCount[p] + ((victoryCount) * 2), post->handCount[p], &failCounter, tmpResult);
 		printf("Next player hand decreased by number of victory cards revealed= "); 
-		assertEq(pre.handCount[nextPlayer] - (preAction-postAction), post->handCount[nextPlayer], &failCounter, tmpResult);
+		assertEq(pre.handCount[nextPlayer] - (victoryCount), post->handCount[nextPlayer], &failCounter, tmpResult);
 	}
 	return failCounter;
 }
