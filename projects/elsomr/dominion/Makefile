@@ -25,11 +25,11 @@ interface.o: interface.h interface.c
 
 runtests: testBaronCard testMinionCard
 	./testBaronCard &> unittestresult.out
-	gcov dominion.c >> unittestresult.out
+	gcov -b -f dominion.c >> unittestresult.out
 	cat dominion.c.gcov >> unittestresult.out
 	
 	./testMinionCard &> unittestresult.out
-	gcov dominion.c >> unittestresult.out
+	gcov -b -f dominion.c >> unittestresult.out
 	cat dominion.c.gcov >> unittestresult.out
 
 
