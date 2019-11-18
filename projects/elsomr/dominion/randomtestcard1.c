@@ -58,7 +58,7 @@ int checkBaronCard(int choice1, int Numplayers, int p, struct gameState *post) {
 int main () {
 	srand(time(0));
 
-    int i, it, n, r, p, deckCount, discardCount, handCount, choice1, numPlayers;
+    int i, j, it, n, r, p, deckCount, discardCount, handCount, choice1, numPlayers;
 	int failCounter = 0;
 
     int k[10] = {adventurer, council_room, feast, gardens, mine,
