@@ -86,6 +86,8 @@ int main () {
         G.deckCount[p] = (int)floor(Random()) % MAX_DECK;
         G.discardCount[p] = (int)floor(Random()) % MAX_DECK;
         G.handCount[p] = (int)floor(Random()) % MAX_HAND;
+		//get random coin amoint
+		G.coins = (int)Random() % 1000000;
 		//call check function
         failCounter += checkBaronCard(choice1, numPlayers, p, &G);
     }
