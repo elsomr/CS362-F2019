@@ -73,9 +73,12 @@ int checkTributeCard(struct gameState *post, int numPlayers, int p, int nextPlay
 	
 	//count post treasure, action, and victory cards
 	for (j=0; j < post->deckCount[nextPlayer]; j++)	{
+		//4-6
 		if (post->deck[nextPlayer][j] == copper || post->deck[nextPlayer][j] == silver ||  post->deck[nextPlayer][j] == gold)	{
 			postTreasure++;
 		}
+		
+		//1-3, 10, 16
 		else if ( post->deck[nextPlayer][j] == estate ||  post->deck[nextPlayer][j] == duchy || post->deck[nextPlayer][j] == province\
 		||  post->deck[nextPlayer][j] == gardens ||  post->deck[nextPlayer][j] == great_hall)	{
 			postVictory++;
@@ -177,7 +180,7 @@ int main () {
 		//store random cards in nextPlayers hand
 		for (j=0; j < G.deckCount[nextPlayer] ; j++)	{
 			index = rand() % 10;
-			G.deck[nextPlayer][j] = k[index];
+			G.deck[nextPlayer][j] = rand() % 20;
 		}
 
 		//call check function
