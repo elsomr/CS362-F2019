@@ -17,6 +17,7 @@
 int checkBaronCard(int choice1, int Numplayers, int p, struct gameState *post) {
     struct gameState pre;
 	int failCounter = 0;
+	int i;
 	char* tmpResult;
     memcpy (&pre, post, sizeof(struct gameState));
 
@@ -28,6 +29,7 @@ int checkBaronCard(int choice1, int Numplayers, int p, struct gameState *post) {
 
     printf ("Baron Effect POST: chioce %d p %d Coins %d HC %d DiC %d\n\n\n",
     	  choice1, p, post->coins, post->handCount[p], post->discardCount[p]);
+
 
 	if (choice1 > 0)	{
 		printf("Coin check = ");
@@ -118,14 +120,20 @@ int main () {
 		//pick random deck, discard, and handcount values
         G.deckCount[p] = rand() % MAX_DECK;
         G.discardCount[p] = rand() % MAX_DECK;
-        G.handCount[p] = rand() % MAX_HAND;
+        //G.handCount[p] = rand() % MAX_HAND;
 		//get random coin amoint
 		G.coins = 100;
 		G.whoseTurn = p;
 		G.supplyCount[estate] = rand() % 12;
-		//get random hand
-		for (it = 0; it < G.handCount[p]; it++) {
+		//get random hand wiht a random handcount
+		handCount = rand() % MAX_HAND;
+		for (it = 0; it < handCount; it++) {
 			drawCard(G.whoseTurn, &G);
+			for (j = 0; j < 10; j++)	{
+				if k[j] == G.hand[p][it]	{
+					printf("%d	,	", j);
+				}
+			}
 		}
 
 		//call check function
