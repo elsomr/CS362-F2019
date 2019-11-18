@@ -9,6 +9,7 @@
  */
 
 #include <string.h>
+#include <stdio.h>
 #include "assertEq.h"
 
 void assertEq(int expected, int outcome, int* failCounter, char* result)	{

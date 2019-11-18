@@ -74,7 +74,7 @@ int main () {
 
     for (n = 0; n < 2000; n++) {
         for (i = 0; i < sizeof(struct gameState); i++) {
-            ((char*)&G)[i] = floor(Random() * 256);
+            ((char*)&G)[i] = (int)Random() * 256;
         }
 		//pick a random choice (either 0 or 1)
 		choice1 = (int)Random() % 2;
