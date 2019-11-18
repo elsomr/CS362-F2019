@@ -73,7 +73,7 @@ int main () {
 		//pick a random number of player(between 2 - 4)
 		numPlayers = (int)floor(Random()) % 3 + 2;
 		//pick a random player
-        p = floor(Random() % numPlayers);
+        p = (int)floor(Random()) % numPlayers;
 		//pick random deck, discard, and handcount values
         G.deckCount[p] = (int)floor(Random()) % MAX_DECK;
         G.discardCount[p] = (int)floor(Random()) % MAX_DECK;
