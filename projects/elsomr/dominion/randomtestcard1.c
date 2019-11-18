@@ -20,7 +20,7 @@ int checkBaronCard(int choice1, int Numplayers, int p, struct gameState *post) {
     memcpy (&pre, post, sizeof(struct gameState));
 
     int r;
-     printf ("Baron Effect PRE: choice %d p %d Coins %d HC %d DiC %d\n",
+    printf ("Baron Effect PRE: choice %d p %d Coins %d HC %d DiC %d\n",
     	  choice1, p, pre.coins, pre.handCount[p], pre.discardCount[p]);
 
     r = baronEffect (choice1, post);
@@ -88,6 +88,7 @@ int main () {
         G.handCount[p] = (int)floor(Random()) % MAX_HAND;
 		//get random coin amoint
 		G.coins = 100;
+		G.whoseTurn = p;
 		printf("\n\n\nCoins = %d\n\n\n", G.coins);
 		//call check function
         failCounter += checkBaronCard(choice1, numPlayers, p, &G);
