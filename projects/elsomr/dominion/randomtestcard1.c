@@ -94,7 +94,7 @@ int main () {
 		G.supplyCount[estate] = rand() % 12;
 		//get random hand
 		for (it = 0; it < MAX_HAND; it++) {
-			drawCard(G.whoseTurn, G);
+			drawCard(G.whoseTurn, &G);
 		}
 
 		//call check function
