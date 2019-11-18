@@ -19,11 +19,14 @@ testBaronCard: randomtestcard1.c dominion.o rngs.o assertEq.o
 	
 testMinionCard: randomtestcard2.c dominion.o rngs.o assertEq.o
 	gcc  -o testMinionCard -g  randomtestcard2.c dominion.o rngs.o assertEq.o $(CFLAGS)
+	
+testTributeCard: randomtestcard3.c dominion.o rngs.o assertEq.o
+	gcc  -o testTributeCard -g  randomtestcard3.c dominion.o rngs.o assertEq.o $(CFLAGS)
 
 interface.o: interface.h interface.c
 	gcc -c interface.c -g  $(CFLAGS)
 
-runtests: testBaronCard testMinionCard
+runtests: testBaronCard testMinionCard testTributeCard
 	./testBaronCard &> unittestresult.out
 	gcov -b -f dominion.c >> unittestresult.out
 	#cat dominion.c.gcov >> unittestresult.out
