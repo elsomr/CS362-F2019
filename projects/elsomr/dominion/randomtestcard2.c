@@ -95,7 +95,7 @@ int main () {
     struct gameState G;
 	
 
-    printf ("Testing Baron Card.\n");
+    printf ("Testing Minion Card.\n");
 
     printf ("RANDOM TESTS.\n");
 
