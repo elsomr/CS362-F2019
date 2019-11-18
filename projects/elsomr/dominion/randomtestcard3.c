@@ -42,7 +42,7 @@ int checkTributeCard(struct gameState *post, int numPlayers, int p, int nextPlay
 	//count pre treasure, action, and victory cards
 	for (j=0; j < pre.handCount[nextPlayer]; j++)	{
 		if (pre.hand[nextPlayer][j] == copper || pre.hand[nextPlayer][j] == silver ||  pre.hand[nextPlayer][j] == gold)	{
-			print("pt\n");
+			preTreasure++;
 		}
 		else if ( pre.hand[nextPlayer][j] == estate ||  pre.hand[nextPlayer][j] == duchy || pre.hand[nextPlayer][j] == province\
 		||  pre.hand[nextPlayer][j] == gardens ||  pre.hand[nextPlayer][j] == great_hall)	{
