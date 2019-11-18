@@ -34,6 +34,9 @@ runtests: testBaronCard testMinionCard testTributeCard
 	./testMinionCard &> unittestresult.out
 	gcov -b -f dominion.c >> unittestresult.out
 	#cat dominion.c.gcov >> unittestresult.out
+	
+	./testTributeCard &> unittestresult.out
+	gcov -b -f dominion.c >> unittestresult.out
 
 
 player: player.c interface.o
