@@ -25,12 +25,12 @@ int checkBaronCard(int choice1, int Numplayers, int p, struct gameState *post) {
     r = baronEffect (choice1, post);
 
     printf ("Baron Effect POST: p %d Coins %d HC %d DiC %d\n\n\n",
-    	  p, post.coins, post.handCount[p], post.discardCount[p]);
+    	  p, post, post, post);
 
 	if (choice1 > 0)	{
 		printf("Coin check = %s\n", assertEq(pre.coins, post.coins, &failCounter));
 		printf("Hand Increases Check = %s\n", assertEq( pre.handCount[p]+1,  post.handCount[p], &failCounter));
-		printf("Card is put in discard pile check = %s\n", assertEq(estate, post.disard[p][post.discardCount[p]], &failCount));
+		printf("Card is put in discard pile check = %s\n", assertEq(estate, post.discard[p][post.discardCount[p]], &failCount));
 		printf("Estate supply decreases = %s\n", assertEq(pre.supplyCount[estate], post.supplyCount[estate], &failCounter));
 		printf("Note: only one of the last two tests should pass\n");
 		
