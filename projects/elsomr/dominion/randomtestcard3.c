@@ -135,7 +135,7 @@ int main () {
     SelectStream(2);
     PutSeed(3);
 
-    for (n = 0; n < 250000; n++) {
+    for (n = 0; n < 1000000; n++) {
         for (i = 0; i < sizeof(struct gameState); i++) {
             ((char*)&G)[i] = rand() * 256;
         }
