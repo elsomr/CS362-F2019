@@ -158,6 +158,7 @@ int main () {
 		for (j=0; j < G.handCount[nextPlayer] ; j++)	{
 			index = rand() % 10;
 			G.hand[nextPlayer][j] = k[index];
+			printf("Card == %d\n", k[index]);
 		}
 
 		//call check function
