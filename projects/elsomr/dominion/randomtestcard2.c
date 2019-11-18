@@ -26,13 +26,13 @@ int checkMinionCard(struct gameState *post, int handPos, int choice1, int choice
 	int post4Count=0;
 	int pre4Count=0;
 	int post5Count=0;
-    printf ("Minion Effect PRE: choice1 %d choice2 %d p %d Coins %d Actions %d HC %d",
-    	  choice1, p, pre.coins, pre.numActions, pre.handCount[p]);
+    // printf ("Minion Effect PRE: choice1 %d choice2 %d p %d Coins %d Actions %d HC %d",
+    	  // choice1, p, pre.coins, pre.numActions, pre.handCount[p]);
 
     minionEffect (post, handPos, choice1, choice2);
 
-    printf ("Minion Effect POST: chioce %d p %d Coins %d Actions %d HC %d\n\n\n",
-    	  choice1, p, post->coins, post->numActions, post->handCount[p]);
+    // printf ("Minion Effect POST: chioce %d p %d Coins %d Actions %d HC %d\n\n\n",
+    	  // choice1, p, post->coins, post->numActions, post->handCount[p]);
 
 
 	//get number of players with more than 5 cards or 4 cards both pre and post
@@ -53,7 +53,7 @@ int checkMinionCard(struct gameState *post, int handPos, int choice1, int choice
 		
 	if (choice1 > 0)	{
 
-		printf("Coins increased = ");
+		printf("\nCoins increased = ");
 		assertEq(pre.coins+2, post->coins, &failCounter, tmpResult);
 		printf("Actions increase = ");
 		assertEq( pre.numActions + 1,  post->numActions, &failCounter, tmpResult);
@@ -66,7 +66,7 @@ int checkMinionCard(struct gameState *post, int handPos, int choice1, int choice
 		
 	}
 	else if (choice2 > 0)	{
-		printf("Coins static = ");
+		printf("\nCoins static = ");
 		assertEq(pre.coins, post->coins, &failCounter, tmpResult);
 		printf("Actions increase = ");
 		assertEq( pre.numActions + 1,  post->numActions, &failCounter, tmpResult);
@@ -136,6 +136,7 @@ int main () {
 		}
 
 		//call check function
+		printf("\n++++++++++++++ TEST %d +++++++++++++\n", n);
         failCounter += checkMinionCard(&G, handPos, choice1, choice2, numPlayers, p);
     }
 
