@@ -731,7 +731,7 @@ void baronEffect(int choice1, struct gameState *state);
 		if (supplyCount(estate, state) > 0) {
 			gainCard(estate, state, 0, currentPlayer);//Gain an estate
 			/*===================================================================
-						BUG FOR ASSIGNMENT 2 (one line directly below)
+						BUG FOR ASSIGNMENT 2 (one line directly below should not add coins)
 			====================================================================*/
 			state->coins += 4;//Add 4 coins to the amount of coins
 			
@@ -747,7 +747,8 @@ void baronEffect(int choice1, struct gameState *state);
 }
 
 /*==========================================4
-	Bug for Assignment 2 (switch choice2 and choice1 in function declaration
+	Bug for Assignment 2 (switch choice2 and choice1 in function parameters)
+	Should be minionEffect(state, handPos, choice1, choice2)
 ==============================================*/
 void minionEffect(struct gameState *state, int handPos, int choice2, int choice1)	{
 	int i, j;
@@ -780,7 +781,7 @@ void minionEffect(struct gameState *state, int handPos, int choice2, int choice1
 
 		//other players discard hand and redraw if hand size > 4
 		/*================================================
-			Bug for Assignment 2 (remove "-1" from for loop below)
+			Bug for Assignment 2 
 				(should be ;i < state->numPlayers;)
 		==================================================*/
 		for (i = 0; i < state->numPlayers - 1; i++)
@@ -815,6 +816,10 @@ void ambassadorEffect(int choice1, int choice2, struct gameState* state, int han
 	int currentPlayer = whoseTurn(state);
     int nextPlayer = currentPlayer + 1;
 	
+	/*================================================
+			Bug for Assignment 2 
+				(second statement should be choice2 < 0)
+	==================================================*/
 	if (choice2 > 2 || choice2 <= 0 || choice1==handPos)
 	{
 		return -1;
@@ -836,7 +841,7 @@ void ambassadorEffect(int choice1, int choice2, struct gameState* state, int han
 		printf("Player %d reveals card number: %d\n", currentPlayer, state->hand[currentPlayer][choice1]);
 
 	/*=====================================================
-		Bug for Assignment 2 (uncomment state->supply line
+		Bug for Assignment 2 (uncomment state->supply line)
 	========================================================*/
 	//increase supply count for choosen card by amount being discarded
 	//state->supplyCount[state->hand[currentPlayer][choice1]] += choice2;
@@ -870,6 +875,10 @@ void ambassadorEffect(int choice1, int choice2, struct gameState* state, int han
 void tributeEffect(struct gameState* state)	{
 	int i;
 	int currentPlayer = whoseTurn(state);
+	/*================================================
+			Bug for Assignment 2  (nextPlayer = currentPlayer)
+				(nextplayer should point to a different player than the current players)
+	==================================================*/
     int nextPlayer = currentPlayer;
 	int tributeRevealedCards[2] = {-1, -1};
 	
@@ -922,6 +931,10 @@ void tributeEffect(struct gameState* state)	{
 		}
 
 		else if (tributeRevealedCards[i] == estate || tributeRevealedCards[i] == duchy || tributeRevealedCards[i] == province || tributeRevealedCards[i] == gardens || tributeRevealedCards[i] == great_hall) { //Victory Card Found
+			/*================================================
+			Bug for Assignment 2 (reusing i variable in a nested loop)
+				(need to change i to another var)
+			==================================================*/
 			for (i = 0; i < 2; i++)	{
 				drawCard(currentPlayer, state);
 			}
@@ -931,6 +944,7 @@ void tributeEffect(struct gameState* state)	{
 		}
 	}
 }
+
 
 int mineEffect(struct gameState* state, int choice1, int choice2, int handPos )	{
 	 
@@ -950,9 +964,17 @@ int mineEffect(struct gameState* state, int choice1, int choice2, int handPos )	
 
 	if ( (getCost(state->hand[currentPlayer][choice1]) + 3) > getCost(choice2) )
 	{
+			/*================================================
+			Bug for Assignment 2 
+				(should return -1 instead of 0)
+			==================================================*/
 		return 0;
 	}
 
+	/*================================================
+			Bug for Assignment 2 
+				(need to change choice1 to choice2 in gainCard function call)
+	==================================================*/
 	gainCard(choice1, state, 2, currentPlayer);
 
 	//discard card from hand
