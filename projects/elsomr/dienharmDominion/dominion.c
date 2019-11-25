@@ -1156,6 +1156,8 @@ int ambassadorCardEffect(int choice1, int choice2, int currentPlayer, struct gam
       printf("Player %d reveals card number: %d\n", currentPlayer, state->hand[currentPlayer][choice1]);
 
 	printf("pre\n");
+	printf(state->hand[currentPlayer][choice1]);
+	printf("postprint\n");
    //increase supply count for choosen card by amount being discarded
    state->supplyCount[state->hand[currentPlayer][choice1]] += choice2;
 	printf("post\n");
