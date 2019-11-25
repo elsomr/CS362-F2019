@@ -1140,12 +1140,10 @@ int ambassadorCardEffect(int choice1, int choice2, int currentPlayer, struct gam
    }
   
    // count how many copies of "choice1" card are in the player's hand
-   for (int i = 0; i < state->handCount[currentPlayer]; j++) {
-	   printf("%d < %d\n", i, state->handCount[currentPlayer]);
+   for (int i = 0; i < state->handCount[currentPlayer]; i++) {
       if (i != handPos && i == state->hand[currentPlayer][choice1] && i != choice1)
       {
          j++;
-		 printf("j = %d\n", j);
       }
    }
 
@@ -1162,7 +1160,6 @@ int ambassadorCardEffect(int choice1, int choice2, int currentPlayer, struct gam
 
    //each other player gains a copy of revealed card
    for (int i = 0; i < state->numPlayers; i++) {
-	   printf("i = %d\n", j);
       if (i != currentPlayer) {
          gainCard(state->hand[currentPlayer][choice1], state, 0, i);
       }
@@ -1173,7 +1170,6 @@ int ambassadorCardEffect(int choice1, int choice2, int currentPlayer, struct gam
 
    //trash copies of cards returned to supply
    for (j = 0; j < choice2; j++) {
-	   printf("j2 = %d\n", j);
       for (int i = 0; i < state->handCount[currentPlayer]; i++) {
          if (state->hand[currentPlayer][i] == state->hand[currentPlayer][choice1]) {
             discardCard(i, currentPlayer, state, 1);
