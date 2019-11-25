@@ -1193,7 +1193,7 @@ int tributeCardEffect(int currentPlayer, struct gameState *state)
    //int nextPlayer = currentPlayer +1;
    int nextPlayer;
    if (currentPlayer < (state->numPlayers - 1))	{
-	   nextPlayer = p + 1;
+	   nextPlayer = currentPlayer + 1;
    }
    else	{
 	   nextPlayer = 0;
