@@ -44,7 +44,7 @@ int main() {
 		minions[i] = minion;
 	}
 	
-    printf ("TESTING tributeEffect():\n");
+    printf ("TESTING tributeCardEffect():\n");
 
 
     for (p = 0; p < numPlayer; p++)
@@ -72,7 +72,7 @@ int main() {
 				tempCoins = G.coins;
 				
 				
-				tributeEffect(&G);
+				tributeCardEffect(&G);
 				
 				printf("Player on left loses 2 cards = %d == %d", tempCards-2, G.handCount[nextPlayer]);
 				assertEq(tempCards-2, G.handCount[nextPlayer], failCounter, tmpResult);
@@ -101,7 +101,7 @@ int main() {
 				tempActions = G.numActions;
 				
 				
-				tributeEffect(&G);
+				tributeCardEffect(&G);
 				
 				printf("Player on left loses 2 cards = %d == %d", tempCards-2, G.handCount[nextPlayer]);
 				assertEq(tempCards-2, G.handCount[nextPlayer], failCounter, tmpResult);
@@ -127,7 +127,7 @@ int main() {
 				preCards = G.handCount[p];
 				
 				
-				tributeEffect(&G);
+				tributeCardEffect(&G);
 				
 				printf("Player on left loses 2 cards = %d == %d", tempCards-2, G.handCount[nextPlayer]);
 				assertEq(tempCards-2, G.handCount[nextPlayer], failCounter, tmpResult);
@@ -155,7 +155,7 @@ int main() {
 				tempCoins = G.coins;
 				
 				
-				tributeEffect(&G);
+				tributeCardEffect(&G);
 				
 				printf("Player on left loses 1 card = %d == %d", tempCards-1, G.handCount[nextPlayer]);
 				assertEq(tempCards-1, G.handCount[nextPlayer], failCounter, tmpResult);
@@ -182,7 +182,7 @@ int main() {
 				tempCoins = G.coins;
 				
 				
-				tributeEffect(&G);
+				tributeCardEffect(&G);
 				
 				printf("Player on left loses 1 card = %d == %d", tempCards-1, G.handCount[nextPlayer]);
 				assertEq(tempCards-1, G.handCount[nextPlayer], failCounter, tmpResult);
@@ -209,7 +209,7 @@ int main() {
 				tempCoins = G.coins;
 				
 				
-				tributeEffect(&G);
+				tributeCardEffect(&G);
 				
 				printf("Player on left loses 0 cards = %d == %d", tempCards, G.handCount[nextPlayer]);
 				assertEq(tempCards-1, G.handCount[nextPlayer], failCounter, tmpResult);
@@ -237,7 +237,7 @@ int main() {
 				tempCoins = G.coins;
 				
 				
-				tributeEffect(&G);
+				tributeCardEffect(&G);
 				
 				printf("Player on left loses 1 card = %d == %d", tempCards-1, G.handCount[nextPlayer]);
 				assertEq(tempCards-1, G.handCount[nextPlayer], failCounter, tmpResult);

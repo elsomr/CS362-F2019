@@ -45,7 +45,7 @@ int main() {
 		coppers[i] = copper;
 	}
 	
-    printf ("TESTING mineEffect():\n");
+    printf ("TESTING mineCardEffect():\n");
 
     for (p = 0; p < numPlayer; p++)
     {
@@ -76,7 +76,7 @@ int main() {
 					}
 				}
 				
-				mineEffect(&G, copper, silver, 0);
+				mineCardEffect(&G, copper, silver, 0);
 				
 				for (i=0; i < G.handCount[p]; i++)	{
 					if (G.hand[p][i] == copper)	{
@@ -119,7 +119,7 @@ int main() {
 					}
 				}
 				
-				mineEffect(&G, silver, gold, 0);
+				mineCardEffect(&G, silver, gold, 0);
 				
 				for (i=0; i < G.handCount[p]; i++)	{
 					if (G.hand[p][i] == silver)	{
@@ -159,7 +159,7 @@ int main() {
 					}
 				}
 				
-				mineEffect(&G, copper, gold, 0);
+				mineCardEffect(&G, copper, gold, 0);
 				
 				for (i=0; i < G.handCount[p]; i++)	{
 					if (G.hand[p][i] == copper)	{
@@ -198,7 +198,7 @@ int main() {
 					}
 				}
 				
-				mineEffect(&G, silver, estate, 0);
+				mineCardEffect(&G, silver, estate, 0);
 				
 				for (i=0; i < G.handCount[p]; i++)	{
 					if (G.hand[p][i] == silver)	{

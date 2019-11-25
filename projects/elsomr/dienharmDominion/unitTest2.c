@@ -29,7 +29,7 @@ int main() {
 	char tmpResult[5];
 	
 	
-    printf ("TESTING minionEffect():\n");
+    printf ("TESTING minionCardEffect():\n");
     for (p = 0; p < numPlayer; p++)
     {
         for (handCount = 1; handCount <= maxHandCount; handCount++)
@@ -62,7 +62,7 @@ int main() {
 				}
 				
 				//gaining coins
-				minionEffect(&G, handCount, 1, 0);
+				minionCardEffect(&G, handCount, 1, 0);
 				
 				printf("Coin check = %d == %d", tempCoins+2, G.coins);
 				assertEq(tempCoins+2, G.coins, failCounter, tmpResult);
@@ -114,7 +114,7 @@ int main() {
 					}
 				}
 				
-				minionEffect(&G, handCount, 0, 1);
+				minionCardEffect(&G, handCount, 0, 1);
 				
 				printf("Coin check = %d == %d", tempCoins+2, G.coins);
 				assertEq(tempCoins+2, G.coins, failCounter, tmpResult);
