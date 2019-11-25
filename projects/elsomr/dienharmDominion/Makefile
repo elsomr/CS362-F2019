@@ -17,16 +17,16 @@ unitTest1: unitTest1.c dominion.o rngs.o assertEq.o
 	gcc  -o unitTest1 -g  unitTest1.c dominion.o rngs.o assertEq.o $(CFLAGS)
 	
 unitTest2: unitTest2.c dominion.o rngs.o assertEq.o
-	gcc  -o unitTest2 -g  unitTest1.c dominion.o rngs.o assertEq.o $(CFLAGS)
+	gcc  -o unitTest2 -g  unitTest3.c dominion.o rngs.o assertEq.o $(CFLAGS)
 
 unitTest3: unitTest3.c dominion.o rngs.o assertEq.o
-	gcc  -o unitTest3 -g  unitTest1.c dominion.o rngs.o assertEq.o $(CFLAGS)
+	gcc  -o unitTest3 -g  unitTest3.c dominion.o rngs.o assertEq.o $(CFLAGS)
 
 unitTest4: unitTest4.c dominion.o rngs.o assertEq.o
-	gcc  -o unitTest4 -g  unitTest1.c dominion.o rngs.o assertEq.o $(CFLAGS)
+	gcc  -o unitTest4 -g  unitTest4.c dominion.o rngs.o assertEq.o $(CFLAGS)
 
 unitTest5: unitTest5.c dominion.o rngs.o assertEq.o
-	gcc  -o unitTest5 -g  unitTest1.c dominion.o rngs.o assertEq.o $(CFLAGS)
+	gcc  -o unitTest5 -g  unitTest5.c dominion.o rngs.o assertEq.o $(CFLAGS)
 	
 testBaronCard: randomtestcard1.c dominion.o rngs.o assertEq.o
 	gcc  -o testBaronCard -g  randomtestcard1.c dominion.o rngs.o assertEq.o $(CFLAGS)
