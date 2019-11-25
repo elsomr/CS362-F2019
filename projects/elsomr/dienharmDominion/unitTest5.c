@@ -76,7 +76,7 @@ int main() {
 					}
 				}
 				
-				mineCardEffect( copper, silver, p, &G,0);
+				mineCardEffect( 0, silver, p, &G,0);
 				
 				for (i=0; i < G.handCount[p]; i++)	{
 					if (G.hand[p][i] == copper)	{
@@ -119,7 +119,7 @@ int main() {
 					}
 				}
 				
-				mineCardEffect( copper, silver, p, &G,0);
+				mineCardEffect( 0, gold, p, &G,0);
 				
 				for (i=0; i < G.handCount[p]; i++)	{
 					if (G.hand[p][i] == silver)	{
@@ -159,7 +159,7 @@ int main() {
 					}
 				}
 				
-				mineCardEffect( copper, silver, p, &G,0);
+				mineCardEffect(0, gold, p, &G,0);
 				
 				for (i=0; i < G.handCount[p]; i++)	{
 					if (G.hand[p][i] == copper)	{
@@ -198,7 +198,7 @@ int main() {
 					}
 				}
 				
-				mineCardEffect( copper, silver, p, &G,0);
+				mineCardEffect( 0, estate, p, &G,0);
 				
 				for (i=0; i < G.handCount[p]; i++)	{
 					if (G.hand[p][i] == silver)	{
