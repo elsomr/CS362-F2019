@@ -89,8 +89,8 @@ int main() {
 				
 				printf("One less copper card = %d == %d", preCopperCount-1, postCopperCount);
 				assertEq(preCopperCount-1, postCopperCount, failCounter, tmpResult);
-				printf("One extra silver card = %d == %d", preSilverCount-1, postSilverCount);
-				assertEq(preSilverCount, postSilverCount, failCounter, tmpResult);
+				printf("One extra silver card = %d == %d", preSilverCount+1, postSilverCount);
+				assertEq(preSilverCount+1, postSilverCount, failCounter, tmpResult);
 
 				
 				
@@ -132,8 +132,8 @@ int main() {
 				
 				printf("One less silver card = %d == %d", preSilverCount-1, postSilverCount);
 				assertEq(preSilverCount-1, postSilverCount, failCounter, tmpResult);
-				printf("One extra gold card = %d == %d", preGoldCount-1, postGoldCount);
-				assertEq(preGoldCount-1, postGoldCount, failCounter, tmpResult);
+				printf("One extra gold card = %d == %d", preGoldCount+1, postGoldCount);
+				assertEq(preGoldCount+1, postGoldCount, failCounter, tmpResult);
 
 				
 			printf("\nTest player %d with %d cards and upgrades copper to gold.\n", p, handCount);
