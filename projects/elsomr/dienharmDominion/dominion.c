@@ -1144,6 +1144,7 @@ int ambassadorCardEffect(int choice1, int choice2, int currentPlayer, struct gam
       if (i != handPos && i == state->hand[currentPlayer][choice1] && i != choice1)
       {
          j++;
+		 		 printf("%d\n", j);
       }
    }
 
