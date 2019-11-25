@@ -115,7 +115,7 @@ int main() {
 					}
 				}
 				
-				minionCardEffect(1, 0, p, &G, handCount);
+				minionCardEffect(0, 1, p, &G, handCount);
 				
 				printf("Coin check = %d == %d", tempCoins+2, G.coins);
 				assertEq(tempCoins+2, G.coins, failCounter, tmpResult);
