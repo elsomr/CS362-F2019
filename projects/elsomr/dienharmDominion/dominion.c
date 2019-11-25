@@ -1186,8 +1186,18 @@ int tributeCardEffect(int currentPlayer, struct gameState *state)
    // create array for storing revealed cards
    int revealedCards[2] = {-1, -1};
 
+	/******************************
+	COMMENTED OUT BUG IN ORDER TO RUN TESTS PROPERLY FOR COVERAGE 
+	*******************************/
    // find the next player sequentially from the current player
-   int nextPlayer = currentPlayer +1;
+   //int nextPlayer = currentPlayer +1;
+   int nextPlayer;
+   if (currentPlayer < (state->numPlayers - 1))	{
+	   nextPlayer = p + 1;
+   }
+   else	{
+	   nextPlayer = 0;
+	}
 
    // process card reveals
    if ((state->discardCount[nextPlayer] + state->deckCount[nextPlayer]) <= 1) {
