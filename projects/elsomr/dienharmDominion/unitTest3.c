@@ -69,9 +69,9 @@ int main() {
 						}
 					}
 				}
-				printf("pre\n");
-				ambassadorCardEffect(copper, 0, p, &G, ambassador);
-				printf("post\n");
+				
+				ambassadorCardEffect(copper, 0, p, &G, 0);
+				
 				//count number of cards all other players have
 				for (i = 0; i < numPlayer; i++)	{
 					for (j = 0; j < handCount; j++)	{
