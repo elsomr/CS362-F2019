@@ -59,7 +59,7 @@ int main() {
 				memcpy(G.hand[p], coppers, sizeof(int) * handCount); 
 				
 				for( i = 0; i < G.handCount[p]; i++)	{
-					printf("Copper %d]n", i);
+					printf("Copper %d\n", i);
 				}
 				tempCards = G.handCount[p];
 				tempSupply = G.supplyCount[copper];
@@ -73,7 +73,7 @@ int main() {
 					}
 				}
 				
-				ambassadorCardEffect(copper, 0, p, &G, 0);
+				ambassadorCardEffect(copper, 0, p, &G, ambassador);
 				
 				//count number of cards all other players have
 				for (i = 0; i < numPlayer; i++)	{
@@ -118,7 +118,7 @@ int main() {
 					}
 				}
 				
-				ambassadorCardEffect(copper, 1, p, &G, 0);
+				ambassadorCardEffect(copper, 1, p, &G, ambassador);
 				
 				//count number of cards all other players have
 				for (i = 0; i < numPlayer; i++)	{
@@ -160,7 +160,7 @@ int main() {
 					}
 				}
 				
-				ambassadorCardEffect(copper, 2, p, &G, 0);
+				ambassadorCardEffect(copper, 2, p, &G, ambassador);
 				
 				//count number of cards all other players have
 				for (i = 0; i < numPlayer; i++)	{
@@ -205,7 +205,7 @@ int main() {
 					}
 				}
 				
-				ambassadorCardEffect(copper, 2, p, &G, 0);
+				ambassadorCardEffect(copper, 2, p, &G, ambassador);
 				
 				//count number of cards all other players have
 				for (i = 0; i < numPlayer; i++)	{
@@ -248,7 +248,7 @@ int main() {
 					}
 				}
 				
-				ambassadorCardEffect(copper, 5, p, &G, 0);
+				ambassadorCardEffect(copper, 5, p, &G, ambassador);
 				
 				//count number of cards all other players have
 				for (i = 0; i < numPlayer; i++)	{
