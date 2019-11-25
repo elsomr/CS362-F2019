@@ -1140,7 +1140,7 @@ int ambassadorCardEffect(int choice1, int choice2, int currentPlayer, struct gam
    }
   
    // count how many copies of "choice1" card are in the player's hand
-   for (int i = 0; i < state->handCount[currentPlayer]; i++) {
+   for (int i = 0; i < state->handCount[currentPlayer]; j++) {
       if (i != handPos && i == state->hand[currentPlayer][choice1] && i != choice1)
       {
          j++;
