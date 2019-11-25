@@ -29,7 +29,7 @@ int checkMinionCard(struct gameState *post, int handPos, int choice1, int choice
     // printf ("Minion Effect PRE: choice1 %d choice2 %d p %d Coins %d Actions %d HC %d",
     	  // choice1, p, pre.coins, pre.numActions, pre.handCount[p]);
 
-    minionCardEffect (post, handPos, choice1, choice2);
+    minionCardEffect(choice1, choice2, post, handPos);
 
     // printf ("Minion Effect POST: chioce %d p %d Coins %d Actions %d HC %d\n\n\n",
     	  // choice1, p, post->coins, post->numActions, post->handCount[p]);

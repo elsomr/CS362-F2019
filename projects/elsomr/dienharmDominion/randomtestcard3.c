@@ -45,7 +45,7 @@ int checkTributeCard(struct gameState *post, int numPlayers, int p, int nextPlay
 	}
 	
 
-    tributeCardEffect (post);
+    tributeCardEffect (p, post);
 
     // printf ("Tribute Effect POST: chioce %d p %d Coins %d Actions %d HC %d\n\n\n",
     	  // choice1, p, post->coins, post->numActions, post->handCount[p]);

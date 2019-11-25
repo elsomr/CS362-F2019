@@ -25,7 +25,7 @@ int checkBaronCard(int choice1, int Numplayers, int p, struct gameState *post) {
     // printf ("\nBaron Effect PRE: choice %d p %d Coins %d HC %d DiC %d\n",
     	  // choice1, p, pre.coins, pre.handCount[p], pre.discardCount[p]);
 
-    r = baronCardEffect (choice1, post);
+    r = baronCardEffect (choice1, p, post);
 
     // printf ("Baron Effect POST: chioce %d p %d Coins %d HC %d DiC %d\n",
     	  // choice1, p, post->coins, post->handCount[p], post->discardCount[p]);

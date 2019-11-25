@@ -70,7 +70,7 @@ int main() {
 				tempCoins = G.coins;
 				
 				//try to discard
-				baronCardEffect(1, &G);
+				baronCardEffect(1, p, &G);
 				
 				printf("Coin check = %d == %d", tempCoins+4, G.coins);
 				assertEq(tempCoins+4, G.coins, failCounter, tmpResult);\
@@ -91,7 +91,7 @@ int main() {
 				
 				tempCoins = G.coins;
 				tempSupply = G.supplyCount[estate];
-				baronCardEffect(1, &G);
+				baronCardEffect(1, p, &G);
 				
 				printf("Coin check = %d == %d", tempCoins, G.coins);
 				assertEq(tempCoins, G.coins, failCounter, tmpResult);
@@ -112,7 +112,7 @@ int main() {
 				G.supplyCount[estate] = 5;
 				tempCoins = G.coins;
 				tempSupply = G.supplyCount[estate];
-				baronCardEffect(0, &G);
+				baronCardEffect(0, p, &G);
 				
 				printf("Coin check = %d == %d", tempCoins, G.coins);
 				assertEq(tempCoins, G.coins, failCounter, tmpResult);
@@ -132,7 +132,7 @@ int main() {
 				
 				//set the supply deck to 0 to test for no supply cards
 				G.supplyCount[estate] = 0;
-				baronCardEffect(0, &G);
+				baronCardEffect(0, p, &G);
 				
 				printf("Coin is static = %d == %d", tempCoins, G.coins);
 				assertEq(tempCoins, G.coins, failCounter, tmpResult);
