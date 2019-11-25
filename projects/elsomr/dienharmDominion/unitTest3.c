@@ -41,7 +41,7 @@ int main() {
 		coppers[i] = copper;
 	}
 	
-    printf ("TESTING ambassadorCardEffect():\n");
+    printf ("TESTING ambassadorEffect():\n");
 
 
     for (p = 0; p < numPlayer; p++)
@@ -70,7 +70,7 @@ int main() {
 					}
 				}
 				
-				ambassadorCardEffect(copper, 0, p, &G, 0);
+				ambassadorEffect(copper, 0, p, &G, 0);
 				
 				//count number of cards all other players have
 				for (i = 0; i < numPlayer; i++)	{
@@ -115,7 +115,7 @@ int main() {
 					}
 				}
 				
-				ambassadorCardEffect(copper, 0, p, &G, 0);
+				ambassadorEffect(copper, 1, p, &G, 0);
 				
 				//count number of cards all other players have
 				for (i = 0; i < numPlayer; i++)	{
@@ -157,7 +157,7 @@ int main() {
 					}
 				}
 				
-				ambassadorCardEffect(copper, 0, p, &G, 0);
+				ambassadorEffect(copper, 2, p, &G, 0);
 				
 				//count number of cards all other players have
 				for (i = 0; i < numPlayer; i++)	{
@@ -202,7 +202,7 @@ int main() {
 					}
 				}
 				
-				ambassadorCardEffect(copper, 0, p, &G, 0);
+				ambassadorEffect(copper, 2, p, &G, 0);
 				
 				//count number of cards all other players have
 				for (i = 0; i < numPlayer; i++)	{
@@ -245,7 +245,7 @@ int main() {
 					}
 				}
 				
-				ambassadorCardEffect(copper, 0, p, &G, 0);
+				ambassadorEffect(copper, 5, p, &G, 0);
 				
 				//count number of cards all other players have
 				for (i = 0; i < numPlayer; i++)	{
