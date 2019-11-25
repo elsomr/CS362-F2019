@@ -17,7 +17,7 @@ unitTest1: unitTest1.c dominion.o rngs.o assertEq.o
 	gcc  -o unitTest1 -g  unitTest1.c dominion.o rngs.o assertEq.o $(CFLAGS)
 	
 unitTest2: unitTest2.c dominion.o rngs.o assertEq.o
-	gcc  -o unitTest2 -g  unitTest3.c dominion.o rngs.o assertEq.o $(CFLAGS)
+	gcc  -o unitTest2 -g  unitTest2.c dominion.o rngs.o assertEq.o $(CFLAGS)
 
 unitTest3: unitTest3.c dominion.o rngs.o assertEq.o
 	gcc  -o unitTest3 -g  unitTest3.c dominion.o rngs.o assertEq.o $(CFLAGS)
