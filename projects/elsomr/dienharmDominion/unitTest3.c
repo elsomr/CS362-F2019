@@ -70,7 +70,7 @@ int main() {
 					}
 				}
 				
-				ambassadorCardEffect(copper, 0, p, &G, 0);
+				ambassadorCardEffect(copper, 0, p, &G, ambassador);
 				
 				//count number of cards all other players have
 				for (i = 0; i < numPlayer; i++)	{
@@ -115,7 +115,7 @@ int main() {
 					}
 				}
 				
-				ambassadorCardEffect(copper, 0, p, &G, 0);
+				ambassadorCardEffect(copper, 0, p, &G, ambassador);
 				
 				//count number of cards all other players have
 				for (i = 0; i < numPlayer; i++)	{
@@ -157,7 +157,7 @@ int main() {
 					}
 				}
 				
-				ambassadorCardEffect(copper, 0, p, &G, 0);
+				ambassadorCardEffect(copper, 0, p, &G, ambassador);
 				
 				//count number of cards all other players have
 				for (i = 0; i < numPlayer; i++)	{
@@ -202,7 +202,7 @@ int main() {
 					}
 				}
 				
-				ambassadorCardEffect(copper, 0, p, &G, 0);
+				ambassadorCardEffect(copper, 0, p, &G, ambassador);
 				
 				//count number of cards all other players have
 				for (i = 0; i < numPlayer; i++)	{
@@ -245,7 +245,7 @@ int main() {
 					}
 				}
 				
-				ambassadorCardEffect(copper, 0, p, &G, 0);
+				ambassadorCardEffect(copper, 0, p, &G, ambassador);
 				
 				//count number of cards all other players have
 				for (i = 0; i < numPlayer; i++)	{
