@@ -1190,14 +1190,14 @@ int tributeCardEffect(int currentPlayer, struct gameState *state)
 	COMMENTED OUT BUG IN ORDER TO RUN TESTS PROPERLY FOR COVERAGE 
 	*******************************/
    // find the next player sequentially from the current player
-   //int nextPlayer = currentPlayer +1;
-   int nextPlayer;
-   if (currentPlayer < (state->numPlayers - 1))	{
-	   nextPlayer = currentPlayer + 1;
-   }
-   else	{
-	   nextPlayer = 0;
-	}
+   int nextPlayer = currentPlayer +1;
+   // int nextPlayer;
+   // if (currentPlayer < (state->numPlayers - 1))	{
+	   // nextPlayer = currentPlayer + 1;
+   // }
+   // else	{
+	   // nextPlayer = 0;
+	// }
 
    // process card reveals
    if ((state->discardCount[nextPlayer] + state->deckCount[nextPlayer]) <= 1) {
