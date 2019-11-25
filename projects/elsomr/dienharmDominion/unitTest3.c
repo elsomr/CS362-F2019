@@ -58,7 +58,7 @@ int main() {
 				memset(postPlayCardCount, 0, numPlayer);
 				memcpy(G.hand[p], coppers, sizeof(int) * handCount); 
 				
-				for( i = 0; i < G.handCount[p]; i==)	{
+				for( i = 0; i < G.handCount[p]; i++)	{
 					printf("Copper %d]n", i);
 				}
 				tempCards = G.handCount[p];
