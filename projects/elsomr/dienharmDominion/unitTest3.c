@@ -70,6 +70,7 @@ int main() {
 					}
 				}
 				printf("pre\n");
+				G.hand[p][0] = ambassador;
 				ambassadorCardEffect(copper, 0, p, &G, 0);
 				printf("post\n");
 				//count number of cards all other players have
