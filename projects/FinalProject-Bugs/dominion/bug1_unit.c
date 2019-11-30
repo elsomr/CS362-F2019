@@ -55,8 +55,8 @@ int main() {
    cardEffect(mine, copper, silver, 0, &G, 0, &bonus);
 
    // show test result
-   printf("Checking if Player 1's hand size has decreased by 2: ");
-   custom_assert(G.handCount[player] == 0);
+   printf("Checking if Player 1's hand size has decreased by 1: ");
+   custom_assert(G.handCount[player] == 1);
    printf("Checking if Player 1's discard pile has increased by 1: ");
    custom_assert(G.discardCount[player] == 1);
    printf("Checking if Player 1's discard pile now contains the Mine card: ");
