@@ -825,7 +825,7 @@ int cardEffect(int card, int choice1, int choice2, int choice3, struct gameState
             return -1;
         }
 
-        gainCard(choice2, state, 0, currentPlayer); // fixed Bug #1 - dienharm
+        gainCard(choice2, state, 2, currentPlayer);
 
         //discard card from hand
         discardCard(handPos, currentPlayer, state, 0);
