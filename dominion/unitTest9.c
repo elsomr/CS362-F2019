@@ -51,6 +51,7 @@ int main() {
    G.handCount[player+1] = 2;
    G.hand[player+1][0] = copper;
    G.hand[player+1][1] = copper;
+   G.deckCount[player+1] = 4
    G.coins = 0;
    G.numActions = 2;
 
