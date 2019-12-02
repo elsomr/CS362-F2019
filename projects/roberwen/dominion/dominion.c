@@ -1055,10 +1055,10 @@ int cardEffect(int card, int choice1, int choice2, int choice3, struct gameState
                 shuffle(nextPlayer,state);//Shuffle the deck
             }
             tributeRevealedCards[0] = state->deck[nextPlayer][state->deckCount[nextPlayer]-1];
-            state->deck[nextPlayer][state->deckCount[nextPlayer]--] = -1;
+            state->deck[nextPlayer][state->deckCount[nextPlayer]-1] = -1;
             state->deckCount[nextPlayer]--;
             tributeRevealedCards[1] = state->deck[nextPlayer][state->deckCount[nextPlayer]-1];
-            state->deck[nextPlayer][state->deckCount[nextPlayer]--] = -1;
+            state->deck[nextPlayer][state->deckCount[nextPlayer]-1] = -1;
             state->deckCount[nextPlayer]--;
         }
 
