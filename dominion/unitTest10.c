@@ -29,7 +29,7 @@ int main() {
    // declare the game state
    struct gameState G;
 
-   printf("Begin testing the tribute card within cardEffect():\n");
+   printf("Begin testing the ambassador card within cardEffect():\n");
 
    // set up the game state for testing
    int seed = 5; // arbitrary seed for RNG
@@ -39,7 +39,7 @@ int main() {
    
    // set up test-specific conditions
    
-   // player attempts to trash a copper card and gain a silver card
+
    printf(" -- Testing Bug #10 --\n");
    initializeGame(2, k, seed, &G);
    G.handCount[player] = 3;
@@ -52,7 +52,7 @@ int main() {
    cardEffect(ambassador, copper, 2, 0, &G, 0, &bonus);
 
    // show test result
-   printf("Checking if Player 1 has lost its trubute and 2 copper cards: ");
+   printf("Checking if Player 1 has lost its ambassador and 2 copper cards: ");
    custom_assert(G.handCount[player] == 0);
 
 
