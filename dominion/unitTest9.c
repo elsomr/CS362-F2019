@@ -57,7 +57,7 @@ int main() {
    cardEffect(tribute, copper, silver, 0, &G, 0, &bonus);
 
    // show test result
-   printf("Checking if Player 1's coins have increased by 4: \n");
+   printf("Checking if Player 1's coins have increased by 4: ");
    custom_assert(G.coins == 4);
    printf("Checking if Player 1's number of actions is static ");
    custom_assert(G.numActions == 2);
