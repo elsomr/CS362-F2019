@@ -46,7 +46,7 @@ int main() {
    G.handCount[player] = 2;
    G.hand[player][0] = tribute;
    G.hand[player][1] = copper;
-   handCount = G.handCount[player]
+   handCount = G.handCount[player];
    //initialize next players hand
    G.handCount[player+1] = 2;
    G.hand[player+1][0] = copper;
@@ -57,9 +57,9 @@ int main() {
    cardEffect(tribute, copper, silver, 0, &G, 0, &bonus);
 
    // show test result
-   printf("Checking if Player 1's coins have increased by 4: ");
+   printf("Checking if Player 1's coins have increased by 4: %d = 4", G.coins);
    custom_assert(G.coins == 4);
-   printf("Checking if Player 1's number of cards have decreased by 1 ");
+   printf("Checking if Player 1's number of cards have decreased by 1 %d = $d", G.handCount[player], handCount);
    custom_assert(G.handCount[player] == handCount - 1);
 
 
