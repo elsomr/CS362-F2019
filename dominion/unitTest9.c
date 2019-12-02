@@ -61,7 +61,7 @@ int main() {
    printf("Checking if Player 1's coins have increased by 4: %d = 4", G.coins);
    custom_assert(G.coins == 4);
    printf("Checking if Player 2's number of cards have decreased by 2 %d = %d", G.deckCount[player], deckCount);
-   custom_assert(G.handCount[player+1] == handCount - 1);
+   custom_assert(G.deckCount[player+1] == deckCount - 2);
 
 
    printf("Testing completed.\n");
