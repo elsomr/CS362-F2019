@@ -1068,22 +1068,20 @@ int cardEffect(int card, int choice1, int choice2, int choice3, struct gameState
             // tributeRevealedCards[1] = -1;
         // }
 		
-		printf("\n\n%d == %d\n\n", tributeRevealedCards[0], copper);
-		printf("\n\n%d == %d\n\n", tributeRevealedCards[1], copper);
+
 
         for (i = 0; i < 2; i ++) {
             if (tributeRevealedCards[i] == copper || tributeRevealedCards[i] == silver || tributeRevealedCards[i] == gold) { //Treasure cards
-                printf("\n\nTreasure\n\n");
+
 				state->coins += 2;
             }
 
             else if (tributeRevealedCards[i] == estate || tributeRevealedCards[i] == duchy || tributeRevealedCards[i] == province || tributeRevealedCards[i] == gardens || tributeRevealedCards[i] == great_hall) { //Victory Card Found
-                printf("\n\nNewCard\n\n");
+
 				drawCard(currentPlayer, state);
                 drawCard(currentPlayer, state);
             }
             else { //Action Card
-				printf("\n\nAction\n\n");
                 state->numActions = state->numActions + 2;
 			}
         }
