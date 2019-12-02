@@ -36,6 +36,7 @@ int main() {
    G.whoseTurn = 0; //player 1 is the current player
    int player = G.whoseTurn;
    int bonus = 0;
+   int handCount;
    
    // set up test-specific conditions
    
@@ -43,8 +44,9 @@ int main() {
    printf(" -- Testing Bug #9 --\n");
    initializeGame(2, k, seed, &G);
    G.handCount[player] = 2;
-   G.hand[player][0] = Tribute;
+   G.hand[player][0] = tribute;
    G.hand[player][1] = copper;
+   handCount = G.handCount[player]
    //initialize next players hand
    G.handCount[player+1] = 2;
    G.hand[player+1][0] = copper;
@@ -57,10 +59,8 @@ int main() {
    // show test result
    printf("Checking if Player 1's coins have increased by 4: ");
    custom_assert(G.coins == 4);
-   printf("Checking if Player 1's actions have stayed static: ");
-   custom_assert(G.numActions == 2);
    printf("Checking if Player 1's number of cards have decreased by 1 ");
-   custom_assert(G.handCount[player] == 1);
+   custom_assert(G.handCount[player] == handCount - 1);
 
 
    printf("Testing completed.\n");
