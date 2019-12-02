@@ -57,10 +57,12 @@ int main() {
    cardEffect(tribute, copper, silver, 0, &G, 0, &bonus);
 
    // show test result
-   printf("Checking if Player 1's coins have increased by 4: %d = 4", G.coins);
+   printf("Checking if Player 1's coins have increased by 4: \n");
    custom_assert(G.coins == 4);
-   printf("Checking if Player 2's number of cards have decreased by 2 %d = %d", G.deckCount[player+1], deckCount);
+   printf("Checking if Player 2's number of cards have decreased by 2 ");
    custom_assert(G.deckCount[player+1] == deckCount - 2);
+   printf("Checking if Player 1's number of cards have decreased by 1 ");
+   custom_assert(G.deckCount[player] == 1);
 
 
    printf("Testing completed.\n");
