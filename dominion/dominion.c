@@ -1091,6 +1091,7 @@ int cardEffect(int card, int choice1, int choice2, int choice3, struct gameState
         return 0;
 
     case ambassador:
+		int tempCard;
         j = 0;		//used to check if player has enough cards to discard
 
         if (choice2 > 2 || choice2 < 0)
@@ -1132,6 +1133,7 @@ int cardEffect(int card, int choice1, int choice2, int choice3, struct gameState
                 gainCard(state->hand[currentPlayer][choice1], state, 0, i);
             }
         }
+		tempCard = state->hand[currentPlayer][choice1];
 
         //discard played card from hand
         discardCard(handPos, currentPlayer, state, 0);
@@ -1144,8 +1146,8 @@ int cardEffect(int card, int choice1, int choice2, int choice3, struct gameState
             for (i = 0; i < state->handCount[currentPlayer]; i++)
             {
 				printf("\ni = %d\n", i);
-				printf("cards  %d == %d", state->hand[currentPlayer][i],state->hand[currentPlayer][choice1]);
-                if (state->hand[currentPlayer][i] == state->hand[currentPlayer][choice1])
+				printf("cards  %d == %d", state->hand[currentPlayer][i],tempCard);
+                if (state->hand[currentPlayer][i] == tempCard)
                 {
 					printf("\nDiscard Copper\n\n");
                     discardCard(i, currentPlayer, state, 1);
