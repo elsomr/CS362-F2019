@@ -49,9 +49,8 @@ int main() {
    deckCount=2;
    //initialize next players hand
    G.deckCount[player+1] = 2;
-   G.deck[player+1][G.deckCount[nextPlayer]-1] = copper;
-   G.deck[player+1][G.deckCount[nextPlayer]-2] = copper;
-   G.deckCount[player+1] = 4
+   G.deck[player+1][G.deckCount[player+1]-1] = copper;
+   G.deck[player+1][G.deckCount[player+1]-2] = copper;
    G.coins = 0;
    G.numActions = 2;
 
