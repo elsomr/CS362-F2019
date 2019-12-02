@@ -49,7 +49,7 @@ int main() {
    G.coins = 0;
    G.numActions = 2;
 
-   cardEffect(ambassador, copper, 2, 0, &G, 0, &bonus);
+   cardEffect(ambassador, 1, 2, 0, &G, 0, &bonus);
 
    // show test result
    printf("Checking if Player 1 has lost its ambassador and 2 copper cards: ");
