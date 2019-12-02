@@ -59,8 +59,8 @@ int main() {
    // show test result
    printf("Checking if Player 1's coins have increased by 4: \n");
    custom_assert(G.coins == 4);
-   printf("Checking if Player 2's number of cards have decreased by 2 ");
-   custom_assert(G.deckCount[player+1] == deckCount - 2);
+   printf("Checking if Player 1's number of actions is static ");
+   custom_assert(G.numActions == 2);
    printf("Checking if Player 1's number of cards have decreased by 1 ");
    custom_assert(G.deckCount[player] == 1);
 
