@@ -688,7 +688,6 @@ int cardEffect(int card, int choice1, int choice2, int choice3, struct gameState
     int k;
     int x;
     int index;
-	
     int currentPlayer = whoseTurn(state);
     int nextPlayer = currentPlayer + 1;
 
@@ -1056,10 +1055,11 @@ int cardEffect(int card, int choice1, int choice2, int choice3, struct gameState
                 shuffle(nextPlayer,state);//Shuffle the deck
             }
             tributeRevealedCards[0] = state->deck[nextPlayer][state->deckCount[nextPlayer]-1];
-            state->deck[nextPlayer][state->deckCount[nextPlayer]-1] = -1;
-            tributeRevealedCards[1] = state->deck[nextPlayer][state->deckCount[nextPlayer]-2];
-            state->deck[nextPlayer][state->deckCount[nextPlayer]-2] = -1;
-            state->deckCount[nextPlayer] = state->deckCount[nextPlayer]-2;
+            state->deck[nextPlayer][state->deckCount[nextPlayer]--] = -1;
+            state->deckCount[nextPlayer]--;
+            tributeRevealedCards[1] = state->deck[nextPlayer][state->deckCount[nextPlayer]-1];
+            state->deck[nextPlayer][state->deckCount[nextPlayer]--] = -1;
+            state->deckCount[nextPlayer]--;
         }
 
         if (tributeRevealedCards[0] == tributeRevealedCards[1]) { //If we have a duplicate card, just drop one
@@ -1070,16 +1070,19 @@ int cardEffect(int card, int choice1, int choice2, int choice3, struct gameState
 
         for (i = 0; i <= 2; i ++) {
             if (tributeRevealedCards[i] == copper || tributeRevealedCards[i] == silver || tributeRevealedCards[i] == gold) { //Treasure cards
-                state->coins += 2;
+                printf("\n\nTreasure\n\n");
+				state->coins += 2;
             }
 
             else if (tributeRevealedCards[i] == estate || tributeRevealedCards[i] == duchy || tributeRevealedCards[i] == province || tributeRevealedCards[i] == gardens || tributeRevealedCards[i] == great_hall) { //Victory Card Found
-                drawCard(currentPlayer, state);
+                printf("\n\nNewCard\n\n");
+				drawCard(currentPlayer, state);
                 drawCard(currentPlayer, state);
             }
             else { //Action Card
+				printf("\n\nAction\n\n");
                 state->numActions = state->numActions + 2;
-            }
+			}
         }
 
         return 0;
