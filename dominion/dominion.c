@@ -1140,6 +1140,7 @@ int cardEffect(int card, int choice1, int choice2, int choice3, struct gameState
         for (j = 0; j < choice2; j++)
         {
 			printf("\nj=%d\n", j);
+			printf("\nhandCount = %d \n", state->handCount[currentPlayer]);
             for (i = 0; i < state->handCount[currentPlayer]; i++)
             {
 				printf("\ni = %d\n", i);
