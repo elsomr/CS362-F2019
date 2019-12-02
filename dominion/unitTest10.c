@@ -41,7 +41,7 @@ int main() {
    // set up test-specific conditions
    
 
-   printf(" -- Testing Bug #10 --\n");
+   printf("\n\n -- Testing Bug #10 --\n");
    initializeGame(2, k, seed, &G);
    G.handCount[player] = 3;
 

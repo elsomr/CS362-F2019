@@ -41,7 +41,7 @@ int main() {
    // set up test-specific conditions
    
    // player attempts to trash a copper card and gain a silver card
-   printf(" -- Testing Bug #9 --\n");
+   printf("\n\n -- Testing Bug #9 --\n");
    initializeGame(2, k, seed, &G);
    G.handCount[player] = 2;
    G.hand[player][0] = tribute;
