@@ -690,7 +690,7 @@ int cardEffect(int card, int choice1, int choice2, int choice3, struct gameState
     int index;
     int currentPlayer = whoseTurn(state);
     int nextPlayer = currentPlayer + 1;
-
+	int cardTemp;
     int tributeRevealedCards[2] = {-1, -1};
     int temphand[MAX_HAND];// moved above the if statement
     int drawntreasure=0;
@@ -1091,7 +1091,7 @@ int cardEffect(int card, int choice1, int choice2, int choice3, struct gameState
         return 0;
 
     case ambassador:
-        j = 0;		//used to check if player has enough cards to discard
+        j = 1;		//used to check if player has enough cards to discard,start at 1 for choice1
 
         if (choice2 > 2 || choice2 < 0)
         {
@@ -1107,7 +1107,7 @@ int cardEffect(int card, int choice1, int choice2, int choice3, struct gameState
         {
 			printf("\n\nout\n\n");
 			printf("%d  !=  %d  \n  %d == %d", i, handPos, i, state->hand[currentPlayer][choice1]);
-            if (i != handPos && state->hand[currentPlayer][i] == state->hand[currentPlayer][choice1])
+            if (i != handPos && state->hand[currentPlayer][i] == state->hand[currentPlayer][choice1] and i!= choice1)
             {
 				printf("\n\nin\n\n");
                 j++;
@@ -1135,7 +1135,7 @@ int cardEffect(int card, int choice1, int choice2, int choice3, struct gameState
 
         //discard played card from hand
         discardCard(handPos, currentPlayer, state, 0);
-
+		
         //trash copies of cards returned to supply
         for (j = 0; j < choice2; j++)
         {

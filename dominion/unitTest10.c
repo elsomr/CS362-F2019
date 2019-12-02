@@ -51,7 +51,7 @@ int main() {
    G.coins = 0;
    G.numActions = 2;
 
-   result = cardEffect(ambassador, 1, 2, 0, &G, 0, &bonus);
+   result = cardEffect(ambassador, 2, 2, 0, &G, 0, &bonus);
 
    // show test result
    printf("Checking if Player 1 has lost 2 copper cards: %d = %d, %d", G.handCount[player], preCount, result);
