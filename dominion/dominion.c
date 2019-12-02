@@ -1107,7 +1107,7 @@ int cardEffect(int card, int choice1, int choice2, int choice3, struct gameState
         {
 			printf("\n\nout\n\n");
 			printf("%d  !=  %d  \n  %d == %d", i, handPos, i, state->hand[currentPlayer][choice1]);
-            if (i != handPos && i == state->hand[currentPlayer][choice1])
+            if (i != handPos && state->hand[currentPlayer][i] == state->hand[currentPlayer][choice1])
             {
 				printf("\n\nin\n\n");
                 j++;
