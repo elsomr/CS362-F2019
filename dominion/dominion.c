@@ -1062,13 +1062,13 @@ int cardEffect(int card, int choice1, int choice2, int choice3, struct gameState
             state->deckCount[nextPlayer]--;
         }
 
-        if (tributeRevealedCards[0] == tributeRevealedCards[1]) { //If we have a duplicate card, just drop one
-            state->playedCards[state->playedCardCount] = tributeRevealedCards[1];
-            state->playedCardCount++;
-            tributeRevealedCards[1] = -1;
-        }
+        // if (tributeRevealedCards[0] == tributeRevealedCards[1]) { //If we have a duplicate card, just drop one
+            // state->playedCards[state->playedCardCount] = tributeRevealedCards[1];
+            // state->playedCardCount++;
+            // tributeRevealedCards[1] = -1;
+        // }
 
-        for (i = 0; i <= 2; i ++) {
+        for (i = 0; i < 2; i ++) {
             if (tributeRevealedCards[i] == copper || tributeRevealedCards[i] == silver || tributeRevealedCards[i] == gold) { //Treasure cards
                 printf("\n\nTreasure\n\n");
 				state->coins += 2;
