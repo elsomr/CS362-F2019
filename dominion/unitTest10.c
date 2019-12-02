@@ -55,7 +55,7 @@ int main() {
 
    // show test result
    printf("Checking if Player 1 has lost 1 ambassador and 2 copper cards: %d = %d, %d", G.handCount[player], preCount, result);
-   custom_assert(G.handCount[player] == 1);
+   custom_assert(G.handCount[player] == 0);
 
 
    printf("Testing completed.\n");
