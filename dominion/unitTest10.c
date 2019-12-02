@@ -43,7 +43,7 @@ int main() {
    printf(" -- Testing Bug #10 --\n");
    initializeGame(2, k, seed, &G);
    G.handCount[player] = 3;
-   G.hand[player][0] = Tribute;
+   G.hand[player][0] = ambassador;
    G.hand[player][1] = copper;
    G.hand[player][2] = copper;
    G.coins = 0;
