@@ -59,7 +59,7 @@ int main() {
    // show test result
    printf("Checking if Player 1's coins have increased by 4: %d = 4", G.coins);
    custom_assert(G.coins == 4);
-   printf("Checking if Player 1's number of cards have decreased by 1 %d = $d", G.handCount[player], handCount);
+   printf("Checking if Player 1's number of cards have decreased by 1 %d = %d", G.handCount[player], handCount);
    custom_assert(G.handCount[player] == handCount - 1);
 
 
