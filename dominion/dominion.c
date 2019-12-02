@@ -1106,11 +1106,9 @@ int cardEffect(int card, int choice1, int choice2, int choice3, struct gameState
 
         for (i = 0; i < state->handCount[currentPlayer]; i++)
         {
-			printf("\n\nout\n\n");
-			printf("%d  !=  %d  \n  %d == %d", i, handPos, i, state->hand[currentPlayer][choice1]);
+			
             if (i != handPos && state->hand[currentPlayer][i] == state->hand[currentPlayer][choice1])
             {
-				printf("\n\nin\n\n");
                 j++;
             }
         }
@@ -1141,15 +1139,10 @@ int cardEffect(int card, int choice1, int choice2, int choice3, struct gameState
         //trash copies of cards returned to supply
         for (j = 0; j < choice2; j++)
         {
-			printf("\nj=%d\n", j);
-			printf("\nhandCount = %d \n", state->handCount[currentPlayer]);
             for (i = 0; i < state->handCount[currentPlayer]; i++)
             {
-				printf("\ni = %d\n", i);
-				printf("cards  %d == %d", state->hand[currentPlayer][i],tempCard);
                 if (state->hand[currentPlayer][i] == tempCard)
                 {
-					printf("\nDiscard Copper\n\n");
                     discardCard(i, currentPlayer, state, 1);
                     break;
                 }
