@@ -1067,6 +1067,9 @@ int cardEffect(int card, int choice1, int choice2, int choice3, struct gameState
             // state->playedCardCount++;
             // tributeRevealedCards[1] = -1;
         // }
+		
+		printf("\n\n%d == %d\n\n", tributeRevealedCards[0], copper};
+		printf("\n\n%d == %d\n\n", tributeRevealedCards[1], copper};
 
         for (i = 0; i < 2; i ++) {
             if (tributeRevealedCards[i] == copper || tributeRevealedCards[i] == silver || tributeRevealedCards[i] == gold) { //Treasure cards
