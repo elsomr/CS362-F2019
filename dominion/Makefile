@@ -15,7 +15,7 @@ interface.o: interface.h interface.c
 	gcc -c interface.c -g  $(CFLAGS)
 
 unitTest9: unitTest9.c dominion.o rngs.o
-	gcc  -o unitTest9 -g  unitTest1.c dominion.o rngs.o $(CFLAGS)
+	gcc  -o unitTest9 -g  unitTest9.c dominion.o rngs.o $(CFLAGS)
 	
 unitTest10: unitTest10.c dominion.o rngs.o
 	gcc  -o unitTest10 -g  unitTest10.c dominion.o rngs.o $(CFLAGS)
