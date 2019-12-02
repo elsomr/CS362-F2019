@@ -54,8 +54,8 @@ int main() {
    result = cardEffect(ambassador, 1, 2, 0, &G, 0, &bonus);
 
    // show test result
-   printf("Checking if Player 1 has lost its ambassador and 2 copper cards: %d = %d, %d", G.handCount[player], preCount, result);
-   custom_assert(G.handCount[player] == 0);
+   printf("Checking if Player 1 has lost 2 copper cards: %d = %d, %d", G.handCount[player], preCount, result);
+   custom_assert(G.handCount[player] == 1);
 
 
    printf("Testing completed.\n");

@@ -1143,6 +1143,7 @@ int cardEffect(int card, int choice1, int choice2, int choice3, struct gameState
             {
                 if (state->hand[currentPlayer][i] == state->hand[currentPlayer][choice1])
                 {
+					printf("\niscard Copper\n\n");
                     discardCard(i, currentPlayer, state, 1);
                     break;
                 }
