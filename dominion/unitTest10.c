@@ -36,7 +36,6 @@ int main() {
    G.whoseTurn = 0; //player 1 is the current player
    int player = G.whoseTurn;
    int bonus = 0;
-   int result, preCount;
    
    // set up test-specific conditions
    
