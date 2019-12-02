@@ -36,6 +36,7 @@ int main() {
    G.whoseTurn = 0; //player 1 is the current player
    int player = G.whoseTurn;
    int bonus = 0;
+   int result, preCount;
    
    // set up test-specific conditions
    
@@ -43,16 +44,17 @@ int main() {
    printf(" -- Testing Bug #10 --\n");
    initializeGame(2, k, seed, &G);
    G.handCount[player] = 3;
+   preCount = 3;
    G.hand[player][0] = ambassador;
    G.hand[player][1] = copper;
    G.hand[player][2] = copper;
    G.coins = 0;
    G.numActions = 2;
 
-   cardEffect(ambassador, 1, 2, 0, &G, 0, &bonus);
+   result = cardEffect(ambassador, 1, 2, 0, &G, 0, &bonus);
 
    // show test result
-   printf("Checking if Player 1 has lost its ambassador and 2 copper cards: ");
+   printf("Checking if Player 1 has lost its ambassador and 2 copper cards: %d = %d, %d", G.handCount[player], preCount, result);
    custom_assert(G.handCount[player] == 0);
 
 
