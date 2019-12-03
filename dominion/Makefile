@@ -14,6 +14,9 @@ playdom: dominion.o playdom.c
 interface.o: interface.h interface.c
 	gcc -c interface.c -g  $(CFLAGS)
 
+unitTest7: unitTest7.c dominion.o rngs.o
+	gcc  -o unitTest7 -g  unitTest7.c dominion.o rngs.o $(CFLAGS)
+	
 unitTest9: unitTest9.c dominion.o rngs.o
 	gcc  -o unitTest9 -g  unitTest9.c dominion.o rngs.o $(CFLAGS)
 	
