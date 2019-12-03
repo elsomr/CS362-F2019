@@ -1088,6 +1088,7 @@ int cardEffect(int card, int choice1, int choice2, int choice3, struct gameState
         return 0;
 
     case ambassador:
+		
         j = 0;		//used to check if player has enough cards to discard
 
         if (choice2 > 2 || choice2 < 0)
@@ -1102,7 +1103,8 @@ int cardEffect(int card, int choice1, int choice2, int choice3, struct gameState
 
         for (i = 0; i < state->handCount[currentPlayer]; i++)
         {
-            if (i != handPos && i == state->hand[currentPlayer][choice1] )
+			
+            if (i != handPos && state->hand[currentPlayer][i] == state->hand[currentPlayer][choice1])
             {
                 j++;
             }
@@ -1126,12 +1128,11 @@ int cardEffect(int card, int choice1, int choice2, int choice3, struct gameState
                 gainCard(state->hand[currentPlayer][choice1], state, 0, i);
             }
         }
-
 		tempCard = state->hand[currentPlayer][choice1];
-		
+
         //discard played card from hand
         discardCard(handPos, currentPlayer, state, 0);
-
+		
         //trash copies of cards returned to supply
         for (j = 0; j < choice2; j++)
         {
@@ -1146,7 +1147,6 @@ int cardEffect(int card, int choice1, int choice2, int choice3, struct gameState
         }
 
         return 0;
-
     case cutpurse:
 
         updateCoins(currentPlayer, state, 2);
