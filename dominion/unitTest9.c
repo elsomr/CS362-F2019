@@ -36,7 +36,7 @@ int main() {
    G.whoseTurn = 0; //player 1 is the current player
    int player = G.whoseTurn;
    int bonus = 0;
-   int deckCount;
+
    
    // set up test-specific conditions
    
@@ -46,7 +46,6 @@ int main() {
    G.handCount[player] = 2;
    G.hand[player][0] = tribute;
    G.hand[player][1] = copper;
-   deckCount=2;
    //initialize next players hand
    G.deckCount[player+1] = 2;
    G.deck[player+1][G.deckCount[player+1]-1] = copper;
