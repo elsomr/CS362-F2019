@@ -24,10 +24,11 @@ unitTest10: unitTest10.c dominion.o rngs.o
 	gcc  -o unitTest10 -g  unitTest10.c dominion.o rngs.o $(CFLAGS)
 
 
-runtests: unitTest9 unitTest10
+runtests: untiTest7 unitTest9 unitTest10
+	
 	./unitTest9 &> testresults.out
 	#gcov -b -f dominion.c >> testresults.out
-	
+	./unitTest7 >> testresults.out
 	./unitTest10 >> testresults.out
 	gcov -b -f dominion.c >> testresults.out
 
