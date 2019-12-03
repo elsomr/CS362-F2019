@@ -50,8 +50,8 @@ int main() {
    //initialize next players hand
    G.deckCount[player+1] = 3;
    //make one treasure, one victory, and one action card in that order
-   G.deck[player+1][G.deckCount[player+1]-1] = copper;
-   G.deck[player+1][G.deckCount[player+1]-2] = estate;
+   G.deck[player+1][G.deckCount[player+1]-1] = baron;
+   G.deck[player+1][G.deckCount[player+1]-2] = baron;
    G.deck[player+1][G.deckCount[player+1]-3] = baron;
    G.coins = 0;
    G.numActions = 2;
@@ -59,12 +59,8 @@ int main() {
    cardEffect(tribute, copper, 0, 0, &G, 0, &bonus);
 
    // show test result
-   printf("Checking if Player 1's coins have increased by 2: ");
-   custom_assert(G.coins == 2);
-   printf("Checking if Player 1's gains two cards: ");
-   custom_assert(G.handCount[player] == 4);
-   printf("Checking if Player 1's number of actions is static ");
-   custom_assert(G.numActions == 2);
+   printf("Checking if Player 1's number of actions increases by 4 ");
+   custom_assert(G.numActions == 6);
 
 
 
