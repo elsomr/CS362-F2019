@@ -59,7 +59,7 @@ int main() {
    cardEffect(tribute, copper, 0, 0, &G, 0, &bonus);
 
    // show test result
-   printf("Checking if Player 1's number of actions increases by 4 ");
+   printf("Checking if Player 1's number of actions increases by 4 %d", G.numActions);
    custom_assert(G.numActions == 4);
 
 
