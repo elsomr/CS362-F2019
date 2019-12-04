@@ -38,13 +38,13 @@ bug4: bug4_unit.c dominion.o
 	gcc -o bug4 bug4_unit.c dominion.o rngs.o -g $(CFLAGS)
 	
 bug7: unitTest7.c dominion.o rngs.o 
-	gcc -o unitTest7 -g unitTest7.c dominion.o rngs.o  $(CFLAGS)
+	gcc -o bug7 -g unitTest7.c dominion.o rngs.o  $(CFLAGS)
 	
 bug9: unitTest9.c dominion.o rngs.o 
-	gcc -o unitTest9 -g unitTest9.c dominion.o rngs.o  $(CFLAGS)
+	gcc -o bug9 -g unitTest9.c dominion.o rngs.o  $(CFLAGS)
 	
 bug10: unitTest10.c dominion.o rngs.o
-	gcc -o unitTest10 -g unitTest10.c dominion.o rngs.o  $(CFLAGS)
+	gcc -o bug10 -g unitTest10.c dominion.o rngs.o  $(CFLAGS)
 	
 
 unittestresults: bug1 bug2 bug3 bug4 bug7 bug9 bug10
@@ -62,4 +62,4 @@ all: playdom player bug1 bug2 bug3 bug4 bug7 bug9 bug10
 
 clean:
 	rm -f *.o playdom.exe playdom player player.exe  *.gcov *.gcda *.gcno *.so *.out testDrawCard testDrawCard.exe bug1.exe bug1 bug2.exe bug2 bug3.exe bug3 bug4.exe bug4 unittestresults.out\
-	bug7.exe bug7 bug9.exe bug9 bug10.exe bug10 unitTest10 unitTest9 unitTest7
+	bug7.exe bug7 bug9.exe bug9 bug10.exe bug10 
