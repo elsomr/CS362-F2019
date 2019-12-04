@@ -61,4 +61,5 @@ unittestresults: bug1 bug2 bug3 bug4
 all: playdom player bug1 bug2 bug3 bug4 
 
 clean:
-	rm -f *.o playdom.exe playdom player player.exe  *.gcov *.gcda *.gcno *.so *.out testDrawCard testDrawCard.exe bug1.exe bug1 bug2.exe bug2 bug3.exe bug3 bug4.exe bug4 unittestresults.out
+	rm -f *.o playdom.exe playdom player player.exe  *.gcov *.gcda *.gcno *.so *.out testDrawCard testDrawCard.exe bug1.exe bug1 bug2.exe bug2 bug3.exe bug3 bug4.exe bug4 unittestresults.out\
+	bug7.exe bug7 bug9.exe bug9 bug10.exe bug10
