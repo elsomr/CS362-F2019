@@ -58,7 +58,7 @@ unittestresults: bug1 bug2 bug3 bug4
 	gcov dominion.c -b -f >> unittestresults.out
 	cat dominion.c.gcov >> unittestresults.out
 
-all: playdom player bug1 bug2 bug3 bug4
+all: playdom player bug1 bug2 bug3 bug4 
 
 clean:
 	rm -f *.o playdom.exe playdom player player.exe  *.gcov *.gcda *.gcno *.so *.out testDrawCard testDrawCard.exe bug1.exe bug1 bug2.exe bug2 bug3.exe bug3 bug4.exe bug4 unittestresults.out
