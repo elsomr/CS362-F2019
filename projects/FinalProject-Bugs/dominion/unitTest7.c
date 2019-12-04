@@ -63,7 +63,7 @@ int main() {
    printf("Checking if Player 1's number of cards do not increase:");
    custom_assert(G.handCount[player] == 2);
    printf("Checking if Player 1's number of actions increases by 4:");
-   custom_assert(G.numActions == 4);
+   custom_assert(G.numActions == 6);
 
 
 
