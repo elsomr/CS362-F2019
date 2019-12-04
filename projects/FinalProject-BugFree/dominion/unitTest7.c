@@ -58,8 +58,13 @@ int main() {
    cardEffect(tribute, copper, 0, 0, &G, 0, &bonus);
 
    // show test result
+   printf("Checking if Player 1's coins stay static:");
+   custom_assert(G.coins == 0);
+   printf("Checking if Player 1's number of cards do not increase:");
+   custom_assert(G.handCount[player] == 2);
    printf("Checking if Player 1's number of actions increases by 4:");
-   custom_assert(G.numActions == 6);
+   custom_assert(G.numActions == 4);
+
 
 
 
