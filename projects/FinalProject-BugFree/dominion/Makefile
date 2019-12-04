@@ -47,7 +47,7 @@ bug10: unitTest10.c dominion.o rngs.o
 	gcc -o unitTest10 -g unitTest10.c dominion.o rngs.o -g $(CFLAGS)
 	
 
-unittestresults: bug1 bug2 bug3 bug4
+unittestresults: bug1 bug2 bug3 bug4 bug7 bug9 bug10
 	bug1 &> unittestresults.out
 	bug2 >> unittestresults.out
 	bug3 >> unittestresults.out
@@ -58,7 +58,7 @@ unittestresults: bug1 bug2 bug3 bug4
 	gcov dominion.c -b -f >> unittestresults.out
 	cat dominion.c.gcov >> unittestresults.out
 
-all: playdom player bug1 bug2 bug3 bug4 
+all: playdom player bug1 bug2 bug3 bug4 bug7 bug9 bug10
 
 clean:
 	rm -f *.o playdom.exe playdom player player.exe  *.gcov *.gcda *.gcno *.so *.out testDrawCard testDrawCard.exe bug1.exe bug1 bug2.exe bug2 bug3.exe bug3 bug4.exe bug4 unittestresults.out\
