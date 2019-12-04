@@ -36,12 +36,25 @@ bug3: bug3_unit.c dominion.o
 
 bug4: bug4_unit.c dominion.o
 	gcc -o bug4 bug4_unit.c dominion.o rngs.o -g $(CFLAGS)
+	
+bug7: unitTest1.c dominion.o rngs.o 
+	gcc -o unitTest1 -g unitTest1.c dominion.o rngs.o  -g $(CFLAGS)
+	
+bug9: unitTest2.c dominion.o rngs.o 
+	gcc -o unitTest2 -g unitTest2.c dominion.o rngs.o -g $(CFLAGS)
+	
+bug10: unitTest1.c dominion.o rngs.o
+	gcc -o unitTest1 -g unitTest1.c dominion.o rngs.o -g $(CFLAGS)
+	
 
 unittestresults: bug1 bug2 bug3 bug4
 	bug1 &> unittestresults.out
 	bug2 >> unittestresults.out
 	bug3 >> unittestresults.out
 	bug4 >> unittestresults.out
+	bug7 >> unittestresults.out
+	bug9 >> unittestresults.out
+	bug10 >> unittestresults.out
 	gcov dominion.c -b -f >> unittestresults.out
 	cat dominion.c.gcov >> unittestresults.out
 
