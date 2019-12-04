@@ -38,13 +38,13 @@ bug4: bug4_unit.c dominion.o
 	gcc -o bug4 bug4_unit.c dominion.o rngs.o -g $(CFLAGS)
 	
 bug7: unitTest7.c dominion.o rngs.o 
-	gcc -o unitTest7 -g unitTest7.c dominion.o rngs.o  -g $(CFLAGS)
+	gcc -o unitTest7 -g unitTest7.c dominion.o rngs.o  $(CFLAGS)
 	
 bug9: unitTest9.c dominion.o rngs.o 
-	gcc -o unitTest9 -g unitTest9.c dominion.o rngs.o -g $(CFLAGS)
+	gcc -o unitTest9 -g unitTest9.c dominion.o rngs.o  $(CFLAGS)
 	
 bug10: unitTest10.c dominion.o rngs.o
-	gcc -o unitTest10 -g unitTest10.c dominion.o rngs.o -g $(CFLAGS)
+	gcc -o unitTest10 -g unitTest10.c dominion.o rngs.o  $(CFLAGS)
 	
 
 unittestresults: bug1 bug2 bug3 bug4 bug7 bug9 bug10
