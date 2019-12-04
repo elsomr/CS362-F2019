@@ -59,7 +59,7 @@ int main() {
 
    // show test result
    printf("Checking if Player 1's number of actions increases by 4:");
-   custom_assert(G.numActions == 6);
+   custom_assert(G.numActions == 4);
 
 
 
